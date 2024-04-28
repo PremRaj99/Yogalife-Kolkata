@@ -3,6 +3,8 @@ import React from "react";
 import { IoIosCall } from "react-icons/io";
 import Card from "../components/Card";
 import FAQ from "../components/FAQ";
+import CTA from "../components/CTA";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -22,6 +24,7 @@ export default function Home() {
               className="mt-4"
               size="md"
               pill
+              as={Link} to="/program"
             >
               Join Our Program
             </Button>
@@ -31,6 +34,7 @@ export default function Home() {
               size="md"
               pill
               outline
+              as={Link} to="/contact-us"
             >
               <span>Contact Us</span>
               <IoIosCall className="text-lg ml-2" />
@@ -130,6 +134,7 @@ export default function Home() {
           <FAQ />
         </div>
       </div>
+      <CTA />
     </div>
   );
 }

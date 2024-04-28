@@ -16,14 +16,14 @@ export default function FooterComponents() {
     <Footer container>
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
-          <Link to="/" className="flex items-center justify-center pb-10">
+          <Link to="/" className="flex items-center pb-10">
             <Footer.Brand
-              className="h-9 sm:h-16"
+              className="h-20 sm:h-24"
               src="/kol-logo.png"
               alt="Flowbite Logo"
               name="Yogalife Kolkata"
             />
-            <span className="text-xl self-center font-bold text-[#AF2226]">
+            <span className="text-2xl self-center font-bold text-[#AF2226]">
               Yogalife Kolkata
             </span>
           </Link>
