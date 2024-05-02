@@ -139,7 +139,7 @@ export default function ContactUs() {
           <BsYoutube className="text-red-700 hover:text-red-600 transition-all duration-75" />
         </Link>
       </div>
-      < CTA />
+      {/* < CTA /> */}
     </div>
   );
 }

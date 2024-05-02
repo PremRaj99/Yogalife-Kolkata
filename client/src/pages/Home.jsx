@@ -9,36 +9,38 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="w-full">
-      <div className="w-full flex-col-reverse p-10 sm:flex-row mx-auto flex min-h-[480px] justify-center items-center gap-10 bg-slate-100">
+      <div className="w-full flex-col-reverse p-8 sm:flex-row mx-auto flex min-h-[480px] justify-center items-center gap-10 bg-slate-100">
         {/* left hero section */}
         <div className="leading-8">
-          <h1 className="font-bold text-5xl mb-8 sm:mb-4">Yogalife Kolkata</h1>
+          <h1 className="font-bold text-5xl mb-8 sm:mb-4 ">Yogalife Kolkata</h1>
           <p className="text-gray-800 px-3 text-center sm:text-left flex flex-col leading-6">
             <span>Building the Body</span>
             <span>Modifying the Mind</span>
             <span>Salvationing the Soul.</span>
           </p>
           <div className="flex flex-col md:flex-row md:gap-3">
-            <Button
-              gradientDuoTone="purpleToPink"
-              className="mt-4"
-              size="md"
-              pill
-              as={Link} to="/program"
-            >
-              Join Our Program
-            </Button>
-            <Button
-              gradientDuoTone="purpleToPink"
-              className="mt-4"
-              size="md"
-              pill
-              outline
-              as={Link} to="/contact-us"
-            >
-              <span>Contact Us</span>
-              <IoIosCall className="text-lg ml-2" />
-            </Button>
+            <Link to="/program">
+              <Button
+                gradientDuoTone="purpleToPink"
+                className="mt-4 w-full"
+                size="md"
+                pill
+              >
+                Join Our Program
+              </Button>
+            </Link>
+            <Link to="/contact-us">
+              <Button
+                gradientDuoTone="purpleToPink"
+                className="mt-4 w-full"
+                size="md"
+                pill
+                outline
+              >
+                <span>Contact Us</span>
+                <IoIosCall className="text-lg ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
         {/* right hero section */}

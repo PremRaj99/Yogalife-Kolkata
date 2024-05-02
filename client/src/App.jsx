@@ -8,10 +8,12 @@ import ContactUs from "./pages/ContactUs";
 import Gallery from "./pages/Gallery";
 import Programs from "./pages/Programs";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,7 +23,7 @@ export default function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/program" element={<Programs />} />
       </Routes>
-      < Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }
