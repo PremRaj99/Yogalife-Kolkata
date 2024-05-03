@@ -10,7 +10,7 @@ const __dirname = path.resolve();
 const app = express();
 
 app.use(express.json());
-app.use(cookieParser());
+// app.use(cookieParser());
 
 
 // define route middleware
