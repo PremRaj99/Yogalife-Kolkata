@@ -41,7 +41,7 @@ export default function ContactUs() {
           className="flex-1 flex max-w-md flex-col gap-4"
           onSubmit={handleSubmit}
         >
-          <div>
+          <div className="px-4">
             <div className="mb-2 block">
               <Label htmlFor="email4" value="Your email" />
             </div>
@@ -57,7 +57,7 @@ export default function ContactUs() {
               required
             />
           </div>
-          <div>
+          <div className="px-4">
             <div className="mb-2 block">
               <Label htmlFor="phn" value="Your Number" />
             </div>
@@ -75,7 +75,7 @@ export default function ContactUs() {
               required
             />
           </div>
-          <div className="max-w-md">
+          <div className="max-w-md px-4">
             <div className="mb-2 block">
               <Label htmlFor="comment" value="Your message" />
             </div>
@@ -90,7 +90,7 @@ export default function ContactUs() {
               }
             />
           </div>
-          <Button gradientDuoTone="purpleToPink" type="submit">
+          <Button gradientDuoTone="purpleToPink" className="mx-4" type="submit">
             {loading ? (
               <>
                 <Spinner size="sm" />
