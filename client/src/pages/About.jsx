@@ -1,15 +1,13 @@
-import React from "react";
 import CTA from "../components/CTA";
-import YogaClassCard from "../components/YogaClassCard";
-import HeadingPage from "../components/common/HeadingPage";
 import AboutMemberCard from "../components/common/AboutMemberCard";
+import HeadingPage from "../components/common/HeadingPage";
 
 export default function About() {
   const members = [
     {
       image: "./memberImage/shambhu-about-image.jpg",
       title: "Pandit Ji",
-      name: "Yogacharya Shambhu Rah Pandit",
+      name: "Yogacharya Shambhu Raj Pandit",
       shortIntro: `International Yoga Guru  
 Founder & Director of Yogalife Kolkata and Ishawarah Foundation.`,
     },
@@ -73,8 +71,8 @@ Official Representative of Yogalife Kolkata.`,
     },
     {
       name: "Vijay Laxmi",
-      image: "./memberImage/vijayLaxmi.png"
-    }
+      image: "./memberImage/vijayLaxmi.png",
+    },
   ];
 
   return (
@@ -95,7 +93,9 @@ Official Representative of Yogalife Kolkata.`,
         ))}
       </div>
       {/* Our Expert Teacher */}
-      <h1 className="container mx-auto px-5 mt-10 font-bold text-2xl">Our Expert Teacher</h1>
+      <h1 className="container mx-auto px-5 mt-10 font-bold text-2xl">
+        Our Expert Teacher
+      </h1>
       <div className="container grid md:grid-cols-4 grid-cols-2 mx-auto gap-2 my-5 p-5">
         {Teachers.map((memeber, index) => (
           <AboutMemberCard
@@ -105,22 +105,6 @@ Official Representative of Yogalife Kolkata.`,
           />
         ))}
       </div>
-      <div className="container mx-auto my-5 p-5">
-        <h1 className="font-bold text-2xl">
-          Know more about YOGA & MEDITATION
-        </h1>
-        <div className="flex flex-col md:flex-row gap-14 container justify-center my-14">
-          <YogaClassCard
-            image="Yoga class image.jpg"
-            text="Yoga is not only workout but it is way of living which can make every second of your life easier. it is a process of working in and art of living."
-          />
-          <YogaClassCard
-            image="Yoga class iamge2.jpg"
-            text="We at YogaLife Global have enduringly believed that a place like us can exist that is totally dedicated to Yogic lifestyle, personal growth and the upliftment of each and every individual through Yogic efforts."
-          />
-        </div>
-      </div>
-
       <CTA />
     </div>
   );

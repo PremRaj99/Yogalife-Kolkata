@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function CTA() {
   return (
-    <div className="w-full flex-col-reverse py-4 pb-10 sm:pb-0 sm:py-0 sm:flex-row mx-auto flex min-h-[480px] justify-center items-center gap-4 bg-indigo-500">
+    <div className="w-full flex-col-reverse py-4 pb-10 sm:pb-0 sm:py-0 sm:flex-row mx-auto flex min-h-[480px] justify-center items-center bg-indigo-500">
       {/* left hero section */}
       <div className="leading-8 p-8">
         <h1 className="font-bold text-white text-5xl text-center mb-8 sm:mb-4">
@@ -45,10 +45,10 @@ export default function CTA() {
       <div className="">
         <img
           src={
-            "https://cdni.iconscout.com/illustration/premium/thumb/yoga-instructor-3488551-2922405.png?f=webp"
+            "kol-logo.png"
           }
           alt="hero section Image"
-          className="w-96 rounded-[50%]"
+          className="w-80 scale-125 rounded-[50%]"
         />
       </div>
     </div>

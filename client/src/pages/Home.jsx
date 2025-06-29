@@ -24,7 +24,7 @@ export default function Home() {
     },
     {
       image: "https://trendphysio.com/assets/png/x-Massage-Therapy.png",
-      title: "Hub Bath Therapy",
+      title: "Herbal Bath Therapy",
       answer:
         "A soothing warm water therapy that relaxes muscles, improves circulation, and eases joint pain.",
     },
@@ -104,7 +104,7 @@ export default function Home() {
 
   const retreats = [
     {
-      title: "Goa Yoga Wellness Retreat",
+      title: "Goa Yoga and Wellness Retreat",
       description: "Beachside yoga to relax, heal, and rejuvenate.",
       image: "./retreatImages/goa.jpg",
     },
@@ -261,7 +261,7 @@ export default function Home() {
       </div>
 
       {/* ------------------- YOGA PROGRAMS AND WORKSHOPS ------------ */}
-      <div className="container mx-auto p-10 py-6 mb-10 bg-white bg-opacity-80 rounded">
+      <div className="container mx-auto p-10 py-6 my-10 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">Yoga Programs & Workshops</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {yogaPrograms.map((item, index) => (
@@ -278,7 +278,7 @@ export default function Home() {
                 alt=""
               />
               <h2 className="text-xl font-medium mb-2">{item.title}</h2>
-              <p className="w-[30ch] text-sm text-gray-600">
+              <p className="max-w-[30ch] text-sm text-gray-600">
                 {item.description}
               </p>
             </div>
@@ -321,7 +321,7 @@ export default function Home() {
                   className="w-32 aspect-square object-cover"
                   alt=""
                 />
-                <strong>{item.title}</strong>
+                <strong className="text-center">{item.title}</strong>
                 <p className="text-xs text-center max-w-[40ch]">
                   {item.answer}
                 </p>
@@ -399,8 +399,12 @@ export default function Home() {
           <FAQ />
         </div>
       </div>
-      <h1 className="container mx-auto text-2xl font-bold">Patient's Feedback</h1>
-      <Testimonial />
+      <div className="p-10 container mx-auto">
+        <h1 className="container mx-auto text-2xl font-bold">
+          Patient's Feedback
+        </h1>
+        <Testimonial />
+      </div>
       <CTA />
     </div>
   );
