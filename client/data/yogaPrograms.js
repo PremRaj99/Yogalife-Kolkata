@@ -42,7 +42,7 @@ export const yogaPrograms = [
   {
     title: "Yoga and Psychotherapy Session",
     description: "Blending yoga and talk therapy for inner healing.",
-    image: "./yogaClases/YogaWorkshopSeminar.jpg",
+    image: "./yogaClases/YogaPhsycothrapySession.jpg",
   },
   {
     title: "Kids Yoga and Wellness",
