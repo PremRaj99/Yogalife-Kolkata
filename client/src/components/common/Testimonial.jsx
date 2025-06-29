@@ -4,5 +4,7 @@ export default function Testimonial() {
     <video className="border border-black" controls src="./testimonial/Testimonial2.mp4"></video>
     <video className="border border-black" controls src="./testimonial/Testimonial3.mp4"></video>
     <video className="border border-black" controls src="./testimonial/Testimonial4.mp4"></video>
+    <video className="border border-black" controls src="./testimonial/Testimonial5.mp4"></video>
+    <video className="border border-black" controls src="./testimonial/Testimonial6.mp4"></video>
   </div> ;
 }
