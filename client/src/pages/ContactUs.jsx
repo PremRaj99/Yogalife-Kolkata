@@ -1,10 +1,17 @@
-import { Alert, Button, Label, Spinner, TextInput, Textarea } from "flowbite-react";
+import {
+  Alert,
+  Button,
+  Label,
+  Spinner,
+  TextInput,
+  Textarea,
+} from "flowbite-react";
 import { HiMail, HiUser } from "react-icons/hi";
 import React, { useState } from "react";
 import { IoMdCall } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { BsFacebook, BsInstagram, BsTwitterX, BsYoutube } from "react-icons/bs";
-import CTA from "../components/CTA"
+import CTA from "../components/CTA";
 import HeadingPage from "../components/common/HeadingPage";
 
 export default function ContactUs() {
@@ -37,7 +44,7 @@ export default function ContactUs() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formdata),
-      })
+      });
 
       const data = await res.json();
       if (!res.status === 201) {
@@ -167,7 +174,7 @@ export default function ContactUs() {
         <a href="https://www.instagram.com/yogalifekolkata?utm_source=qr">
           <BsInstagram className="text-pink-600 hover:text-pink-700 transition-all duration-75" />
         </a>
-        <a href="/">
+        <a href="https://x.com/Shambhu40287904?t=fD_gnGm5cuv5cH4YyLgqxA&s=08 ">
           <BsTwitterX className="text-gray-700 hover:text-gray-900 transition-all duration-75" />
         </a>
         <a href="/">
