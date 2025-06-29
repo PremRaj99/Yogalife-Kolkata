@@ -54,7 +54,7 @@ Convener, Publicity and Events at Yogalife Kolkata.`,
   const Teachers = [
     {
       name: "RYT 300 Tonmoy Roy",
-      image: "./memberImage/tanmay.jpg",
+      image: "./memberImage/tanmayRoy.jpg",
     },
     {
       name: "RYT 500 Silpa Majumder",
