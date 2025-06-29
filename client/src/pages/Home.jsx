@@ -164,7 +164,7 @@ export default function Home() {
           <p className="font-semibold text-center">
             Our Core Therapies Include:
           </p>
-          <div className="grid gap-6 grid-cols-4">
+          <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
             {naturopathy.map((item, index) => (
               <div key={index} className="flex flex-col items-center gap-2">
                 <img src={item.iamge} className="w-32 aspect-square object-cover" alt="" />
@@ -177,7 +177,7 @@ export default function Home() {
       </div>
       <div className="border container mx-auto"></div>
       <div className="container mx-auto p-10 py-6 bg-white bg-opacity-80 rounded">
-        <h1 className="text-2xl font-bold">Trekking and Retreats</h1>
+        <h1 className="text-2xl font-bold">Yoga and wellness Retreat (Domestic & International)</h1>
         <div className="flex flex-wrap justify-center items-center my-10 gap-4">
           <Card />
           <Card />
