@@ -161,18 +161,18 @@ export default function ContactUs() {
         <div className="flex-1 border"> </div>
       </div>
       <div className="flex gap-10 items-center justify-center my-10 text-5xl text-gray-800">
-        <Link to="/">
+        <a href="https://www.facebook.com/share/19Wox1VPcU/?mibextid=wwXIfr">
           <BsFacebook className="text-blue-700 hover:text-blue-600 transition-all duration-75" />
-        </Link>
-        <Link to="/">
+        </a>
+        <a href="https://www.instagram.com/yogalifekolkata?utm_source=qr">
           <BsInstagram className="text-pink-600 hover:text-pink-700 transition-all duration-75" />
-        </Link>
-        <Link to="/">
+        </a>
+        <a href="/">
           <BsTwitterX className="text-gray-700 hover:text-gray-900 transition-all duration-75" />
-        </Link>
-        <Link to="/">
+        </a>
+        <a href="/">
           <BsYoutube className="text-red-700 hover:text-red-600 transition-all duration-75" />
-        </Link>
+        </a>
       </div>
       {/* < CTA /> */}
     </div>

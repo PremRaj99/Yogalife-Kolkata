@@ -7,6 +7,51 @@ import { Link } from "react-router-dom";
 // import kolLogo from "../assets/kol-logo.png";
 
 export default function Home() {
+  const naturopathy = [
+    {
+      image: "https://cdn-icons-png.freepik.com/256/14869/14869700.png",
+      title: "Hydrotherapy",
+      answer:
+        "Harnessing the therapeutic benefits of water through baths, jets, and wraps to stimulate circulation and detoxification.",
+    },
+    {
+      image: "https://cdn-icons-png.flaticon.com/256/4856/4856946.png",
+      title: "Mud Therapy",
+      answer:
+        "Using mineral-rich mud to reduce inflammation, cool the body, and restore skin health.",
+    },
+    {
+      image: "https://trendphysio.com/assets/png/x-Massage-Therapy.png",
+      title: "Massage Therapy",
+      answer:
+        "Targeted manual techniques to relieve tension, improve blood flow, and promote deep relaxation.",
+    },
+    {
+      iamge: "https://cdn-icons-png.flaticon.com/256/12024/12024705.png",
+      title: "Diet & Nutrition Counseling",
+      answer:
+        "Personalized plans rooted in naturopathic principles to help you heal from within.",
+    },
+    {
+      iamge: "https://cdn-icons-png.flaticon.com/256/2807/2807134.png",
+      title: "Yoga & Meditation",
+      answer:
+        "Techniques to align the body and mind, reduce stress, and enhance self-awareness.",
+    },
+    {
+      image: "https://cdn-icons-png.freepik.com/256/5418/5418643.png",
+      title: "Acupressure & Reflexology",
+      answer:
+        "Stimulating pressure points to balance energy flow and support internal healing.",
+    },
+    {
+      iamge:
+        "https://cdn.iconscout.com/icon/free/png-256/free-home-remedies-icon-download-in-svg-png-gif-file-formats--homeopathy-herbal-medicine-ayurvedic-medical-services-pack-healthcare-icons-1607974.png",
+      title: "Herbal Remedies",
+      answer:
+        "Safe, natural plant-based solutions to support organ function and overall vitality.",
+    },
+  ];
   return (
     <div className="w-full overflow-hidden">
       <div className="relative w-screen h-screen overflow-hidden">
@@ -28,15 +73,16 @@ export default function Home() {
             className="h-36 scale-150"
             alt=""
             style={{
-              filter: "drop-shadow(0 4px 24px #fff) drop-shadow(0 2px 8px #a855f7)"
+              filter:
+                "drop-shadow(0 4px 24px #fff) drop-shadow(0 2px 8px #a855f7)",
             }}
           />
           <h1 className="text-3xl font-bold text-white text-center">
             Welcome to the Yogalife
           </h1>
           <p className="text-gray-300 px-3 text-center flex flex-wrap items-center justify-center gap-2 leading-6">
-            Building the Body <span className="text-red-200 scale-125">|</span> 
-            Modifying the Mind <span className="text-red-200 scale-125">|</span> 
+            Building the Body <span className="text-red-200 scale-125">|</span>
+            Modifying the Mind <span className="text-red-200 scale-125">|</span>
             Salvationing the Soul.
           </p>
           <div className="flex flex-col md:flex-row w-full items-center justify-center md:gap-3">
@@ -100,35 +146,33 @@ export default function Home() {
             src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2ab37bf4-074b-496b-ad0b-6fa2dc0cffe5/dfzvmlt-c777f8a0-b0ea-44d2-a447-79e66d5415c4.png/v1/fill/w_320,h_380/chakras_map_svg_by_revinchristianhatol_dfzvmlt-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzgwIiwicGF0aCI6IlwvZlwvMmFiMzdiZjQtMDc0Yi00OTZiLWFkMGItNmZhMmRjMGNmZmU1XC9kZnp2bWx0LWM3NzdmOGEwLWIwZWEtNDRkMi1hNDQ3LTc5ZTY2ZDU0MTVjNC5wbmciLCJ3aWR0aCI6Ijw9MzIwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlLm9wZXJhdGlvbnMiXX0.CMZ8_ObH31E-AmwJ1-QvWVn9eGx8DYWa3GTLccupPjo"
             alt=""
             style={{
-              filter: "drop-shadow(0 4px 24px #fff) drop-shadow(0 2px 8px #a855f7)"
+              filter:
+                "drop-shadow(0 4px 24px #fff) drop-shadow(0 2px 8px #a855f7)",
             }}
           />
           <p className="italic text-center">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque,
-            aut! Quidem, consequuntur soluta voluptas doloremque cupiditate ipsa
-            incidunt architecto beatae fugit officia consequatur, ab dolores
-            explicabo asperiores repellat molestiae. Dignissimos est dolorum
-            iusto illo. Voluptas eaque, asperiores suscipit iusto nam odio
-            adipisci recusandae vel praesentium quam repellendus harum a nemo
-            qui tenetur itaque sed, sunt amet tempora exercitationem dolore
-            aliquid omnis est? Eius a dolorem corporis assumenda! Animi fugit
-            perferendis minima repellendus illo tenetur a aliquid quisquam
-            perspiciatis et, veniam doloremque, assumenda amet illum, deleniti
-            architecto maxime ab voluptatibus! Dolore ipsam quos in voluptatem
-            dolor? Impedit recusandae tenetur cumque molestiae deleniti qui quae
-            id esse, labore assumenda? Maxime dolore, eveniet, adipisci
-            recusandae labore in quis tempora quaerat animi aspernatur rerum
-            dolorum nam nihil, fugiat doloremque iste ullam voluptatem mollitia
-            quod impedit nulla ratione autem natus dolor. Eos ducimus delectus
-            suscipit dolores quae cum qui vitae incidunt obcaecati pariatur
-            libero nulla tempore, asperiores quidem, voluptas natus soluta
-            eaque, non sit inventore cumque saepe. Inventore eveniet fugiat
-            sequi labore accusamus, placeat mollitia impedit veniam saepe
-            reprehenderit maiores assumenda nulla vel enim quas magni repellat
-            ad minima distinctio, illo exercitationem dignissimos ex hic
-            debitis. Aut omnis quibusdam doloribus suscipit dolorem illo enim
-            incidunt?
+            Discover the healing power of nature with our holistic Naturopathy
+            Therapies. Rooted in ancient wisdom and backed by modern science,
+            naturopathy focuses on stimulating the body’s inherent ability to
+            restore balance and wellness.
           </p>
+          <p className="italic text-center">
+            At our center, we offer a wide range of therapies designed to
+            detoxify, rejuvenate, and heal — without relying on synthetic drugs
+            or invasive procedures.
+          </p>
+          <p className="font-semibold text-center">
+            Our Core Therapies Include:
+          </p>
+          <div className="grid gap-6 grid-cols-4">
+            {naturopathy.map((item, index) => (
+              <div key={index} className="flex flex-col items-center gap-2">
+                <img src={item.iamge} className="w-32 aspect-square object-cover" alt="" />
+                <strong>{item.title}</strong>
+                <p className="text-xs text-center max-w-[40ch]">{item.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="border container mx-auto"></div>
