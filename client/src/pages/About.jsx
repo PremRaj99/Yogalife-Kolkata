@@ -2,59 +2,104 @@ import React from "react";
 import CTA from "../components/CTA";
 import YogaClassCard from "../components/YogaClassCard";
 import HeadingPage from "../components/common/HeadingPage";
+import AboutMemberCard from "../components/common/AboutMemberCard";
 
 export default function About() {
+  const members = [
+    {
+      image: "./memberImage/shambhu-about-image.jpg",
+      title: "Pandit Ji",
+      name: "Yogacharya Shambhu Rah Pandit",
+      shortIntro: `International Yoga Guru  
+Founder & Director of Yogalife Kolkata and Ishawarah Foundation.`,
+    },
+    {
+      image: "./memberImage/Dr.-RadheShyam-Mishra.jpeg",
+      title: "Guru Ji",
+      name: "Dr. Radheshyam Mishra",
+      shortIntro: `Renowned International Yoga Guru  
+Founder & Director of Yogalife Global (UYLS) and Yogalife Ashram – Brazil & India.`,
+    },
+    {
+      image: "./memberImage/rituGoyal.jpg", // Update image if available
+      title: "Psychotherapist",
+      name: "Ritu Goel",
+      shortIntro: `Certified Psychotherapist  
+Holds a Master's degree and Diploma in Psychotherapy.`,
+    },
+    {
+      image: "./memberImage/Arkaprava.jpg", // Update image if available
+      title: "Ayurvedachariya",
+      name: "Dr. Arkaprava Jana",
+      shortIntro: `BAMS (WBUHS), Director of Ayuprava Holistic Healthcare Clinic  
+Official Representative of Yogalife Kolkata.`,
+    },
+    {
+      image: "./memberImage/Dr.-Ashish-Arya.jpg", // Update image if available
+      title: "Vice president",
+      name: "Dr. Ashish Arya (Aadi Dev)",
+      shortIntro: `BHMS,RYT 500 and Master degree in yoga therapy(Svyasa University Banglore)`,
+    },
+  ];
+
+  const Teachers = [
+    {
+      name: "Tonmoy Roy",
+      image: "./memberImage/tanmay.jpg",
+    },
+    {
+      name: "Silpa Majumder",
+      image: "./memberImage/shilpa.jpg",
+    },
+    {
+      name: "Puja Prashad",
+      image: "./memberImage/puja.jpg",
+    },
+    {
+      name: "Shweta vats",
+      image: "./memberImage/sweta.jpg",
+    },
+    {
+      name: "Shradha chhaochharia",
+      image: "./memberImage/shradha.jpg",
+    },
+    {
+      name: "Seema Rawat",
+      image: "./memberImage/shimaRawat.jpg",
+    },
+    {
+      name: "Mridul dahaya",
+      image: "./memberImage/mridulDaiya.jpg",
+    },
+  ];
+
   return (
-    <div className="w-ful">
+    <div className="w-ful overflow-hidden">
       <HeadingPage>About Us</HeadingPage>
       <div className="container mx-auto my-5 p-5">
         <h1 className="font-bold text-2xl">About Us</h1>
-        <div className="py-10">
-          <h2 className="text-3xl font-semibold font-serif">
-            YOGACHARYA SHAMBHU RAJ PANDIT
-          </h2>
-          <div className="flex flex-col-reverse md:flex-row gap-1 sm:gap-8 my-5">
-            <div className="flex-1">
-              <p className="text-gray-600 text-sm sm:text-base">
-                A man with profound inclination to serve mankind and humanity
-                started his voyage at the age of 13, searching for a true path
-                in life. He has spent his initial years exploring the Indian
-                heritage, learning about Yoga, Tapa Saadhana, Naturopathy from
-                various renowned personnels like Pandit Shriram Sharma Acharya,
-                Deoraha Baba, Pundit Radheshyam Mishra, Shri Siddheshwar
-                Brahmarshi Gurudev. He has travelled across the country gaining
-                knowledge, teaching and researching in the areas of health,
-                nature and social welfare. He is currently the Founder and
-                Director of Yogalife Kolkata and “Chalo Chale Prakriti ki
-                or”,Chairman of the Indian Yoga Association (IYA) West Bengal
-                Chapter, Chiropractor, Naturopath, Author, Researcher and
-                Eminent Yogacharya – Shri Siddheshwar Tirtha Ashram, Tirupati
-                Balaji and Ujjain Yoga life Society, Intermational (Yogalife
-                Global). He is also a counselor and researcher in the areas of
-                mental, physical and spirituality. Yogacharya Shambhuraj ji has
-                been doing professional yoga training, natural medicinal
-                practice, social welfare, nature conservation, yoga and
-                lifestyle practices, ancient and traditional yoga practices and
-                the skills of the Chiropractor and is able to treat all types of
-                diseases without any medication and surgery and is a good
-                mental, physical health, medical, spiritual counselor and
-                researcher since the year 2011. Yogalife Kolkata has been
-                providing corporate yoga services since 2017 in
-                Kolkata,Delhi,Chennai,Bangalore,Mumbai and others part of india.
-                Pandit ji services are also being provided in foreign countries
-                such as Dubai,California,Grecce,Baku,indonesia,UK and other
-                countries and locations.
-              </p>
-            </div>
-            <div className="flex-1 flex items-center justify-center">
-              <img
-                src="shambhu about image.jpg"
-                className="rounded-full w-[500px] aspect-square object-cover p-10"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
+      </div>
+      <div className="container grid md:grid-cols-4 grid-cols-2 mx-auto gap-2 my-5 p-5">
+        {members.map((memeber, index) => (
+          <AboutMemberCard
+            key={index}
+            title={memeber.title}
+            name={memeber.name}
+            image={memeber.image}
+            shortIntro={memeber.shortIntro}
+          />
+        ))}
+      </div>
+      {/* Our Expert Teacher */}
+      <h1 className="container mx-auto px-5 mt-10 font-bold text-2xl">Our Expert Techer</h1>
+      <div className="container grid md:grid-cols-4 grid-cols-2 mx-auto gap-2 my-5 p-5">
+        {Teachers.map((memeber, index) => (
+          <AboutMemberCard
+            key={index}
+            name={memeber.name}
+            image={memeber.image}
+          />
+        ))}
       </div>
       <div className="container mx-auto my-5 p-5">
         <h1 className="font-bold text-2xl">

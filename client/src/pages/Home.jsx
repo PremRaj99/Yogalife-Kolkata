@@ -5,6 +5,7 @@ import FAQ from "../components/FAQ";
 import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { yogaPrograms } from "../../data/yogaPrograms";
+import Testimonial from "../components/common/Testimonial";
 // import kolLogo from "../assets/kol-logo.png";
 
 export default function Home() {
@@ -104,13 +105,98 @@ export default function Home() {
   const retreats = [
     {
       title: "Goa Yoga Wellness Retreat",
-      description: "",
-      image: "",
+      description: "Beachside yoga to relax, heal, and rejuvenate.",
+      image: "./retreatImages/goa.jpg",
     },
     {
-      title: "Kerla Yoga and Wellness Retreat",
-      description: "",
-      image: "",
+      title: "Kerala Yoga and Wellness Retreat",
+      description: "Experience Ayurveda and yoga in lush greenery.",
+      image: "./retreatImages/kerala.jpg",
+    },
+    {
+      title: "Rishikesh Yoga and Wellness Retreat",
+      description: "Practice yoga on the banks of the holy Ganga.",
+      image: "./retreatImages/rishikesh.jpg",
+    },
+    {
+      title: "Himachal Yoga and Wellness Retreat",
+      description: "Mountain retreat to recharge body and soul.",
+      image: "./retreatImages/himachal.jpg",
+    },
+    {
+      title: "Rajasthan Yoga and Wellness Retreat",
+      description: "Desert serenity meets ancient wellness wisdom.",
+      image: "./retreatImages/rajasthan.jpg",
+    },
+    {
+      title: "Arunachal Pradesh Yoga and Wellness Retreat",
+      description: "Peaceful yoga retreat in Northeast’s wild beauty.",
+      image: "./retreatImages/arunachal.jpg",
+    },
+    {
+      title: "Puducherry Yoga and Wellness Retreat",
+      description: "French charm and coastal calm with yoga bliss.",
+      image: "./retreatImages/puducherry.jpg",
+    },
+    {
+      title: "Varanasi Yoga and Spiritual Retreat",
+      description: "Spiritual yoga by the sacred Ganga ghats.",
+      image: "./retreatImages/varanasi.jpg",
+    },
+    {
+      title: "Vrindavan Yoga and Spiritual Retreat",
+      description: "Serene retreat in the land of Krishna's love.",
+      image: "./retreatImages/vrindavan.jpg",
+    },
+    {
+      title: "Bhutan Yoga and Wellness Retreat",
+      description: "Mindful escape in the peaceful Himalayan kingdom.",
+      image: "./retreatImages/bhutan.jpg",
+    },
+    {
+      title: "Thailand Yoga and Wellness Retreat",
+      description: "Tropical wellness with yoga and Thai healing.",
+      image: "./retreatImages/thailand.jpg",
+    },
+    {
+      title: "Vietnam Yoga and Wellness Retreat",
+      description: "Coastal calm and cultural healing through yoga.",
+      image: "./retreatImages/vietnam.jpg",
+    },
+    {
+      title: "Bali Yoga and Wellness Retreat",
+      description: "Tropical yoga bliss with scenic ocean views.",
+      image: "./retreatImages/bali.jpg",
+    },
+    {
+      title: "Malaysia Yoga and Wellness Retreat",
+      description: "Blend of modern wellness and natural serenity.",
+      image: "./retreatImages/malaysia.jpg",
+    },
+    {
+      title: "Dubai Yoga and Wellness Retreat",
+      description: "Luxury yoga escape in a vibrant desert city.",
+      image: "./retreatImages/dubai.jpg",
+    },
+    {
+      title: "Sri Lanka Yoga and Wellness Retreat",
+      description: "Island retreat with Ayurvedic healing rituals.",
+      image: "./retreatImages/srilanka.jpg",
+    },
+    {
+      title: "Nepal Yoga and Wellness Retreat",
+      description: "Yoga in the Himalayas, peace and purity combined.",
+      image: "./retreatImages/nepal.jpg",
+    },
+    {
+      title: "Char Dham Yatra Spiritual Retreat",
+      description: "Pilgrimage and yoga across India’s holy sites.",
+      image: "./retreatImages/chardham.jpg",
+    },
+    {
+      title: "Kailash Mansarovar Yatra",
+      description: "Sacred journey of inner peace and spiritual power.",
+      image: "./retreatImages/kailash.jpg",
     },
   ];
 
@@ -294,14 +380,14 @@ export default function Home() {
           Yoga and wellness Retreat (Domestic & International)
         </h1>
         <div className="flex flex-wrap justify-center items-center my-10 gap-4">
-          {retreats.map((retreats, index) => {
+          {retreats.map((retreat, index) => (
             <Card
               key={index}
-              title={retreats.title}
-              desc={retreats.description}
-              image={retreats.image}
-            />;
-          })}
+              title={retreat.title}
+              desc={retreat.description}
+              image={retreat.image}
+            />
+          ))}
         </div>
       </div>
 
@@ -313,6 +399,7 @@ export default function Home() {
           <FAQ />
         </div>
       </div>
+      <Testimonial />
       <CTA />
     </div>
   );
