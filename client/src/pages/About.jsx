@@ -71,7 +71,7 @@ Official Representative of Yogalife Kolkata.`,
     },
     {
       name: "Vijay Laxmi",
-      image: "./memberImage/vijayLaxmi.png",
+      image: "./memberImage/vijayLaxmi.jpg",
     },
   ];
 
