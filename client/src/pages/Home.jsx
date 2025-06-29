@@ -1,24 +1,45 @@
-import { Button } from "flowbite-react";
-import React from "react";
 import { IoIosCall } from "react-icons/io";
 import Card from "../components/Card";
-import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
+import FAQ from "../components/FAQ";
+import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
+// import kolLogo from "../assets/kol-logo.png";
 
 export default function Home() {
   return (
-    <div className="w-full">
-      <div className="w-full flex-col-reverse p-8 sm:flex-row mx-auto flex min-h-[480px] justify-center items-center gap-10 bg-slate-100">
-        {/* left hero section */}
-        <div className="leading-8">
-          <h1 className="font-bold text-5xl mb-8 sm:mb-4 ">Yogalife Kolkata</h1>
-          <p className="text-gray-800 px-3 text-center sm:text-left flex flex-col leading-6">
-            <span>Building the Body</span>
-            <span>Modifying the Mind</span>
-            <span>Salvationing the Soul.</span>
+    <div className="w-full overflow-hidden">
+      <div className="relative w-screen h-screen overflow-hidden">
+        {/* Video Background */}
+        <video
+          src="yol.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        />
+
+        {/* Content Layer */}
+        <div className="relative z-10 flex flex-col justify-center items-center gap-4 p-8 bg-black bg-opacity-90 w-full h-full">
+          {/* Your content goes here */}
+          <img
+            src="/kol-logo.png"
+            className="h-36 scale-150"
+            alt=""
+            style={{
+              filter: "drop-shadow(0 4px 24px #fff) drop-shadow(0 2px 8px #a855f7)"
+            }}
+          />
+          <h1 className="text-3xl font-bold text-white text-center">
+            Welcome to the Yogalife
+          </h1>
+          <p className="text-gray-300 px-3 text-center flex flex-wrap items-center justify-center gap-2 leading-6">
+            Building the Body <span className="text-red-200 scale-125">|</span> 
+            Modifying the Mind <span className="text-red-200 scale-125">|</span> 
+            Salvationing the Soul.
           </p>
-          <div className="flex flex-col md:flex-row md:gap-3">
+          <div className="flex flex-col md:flex-row w-full items-center justify-center md:gap-3">
             <Link to="/program">
               <Button
                 gradientDuoTone="purpleToPink"
@@ -43,18 +64,8 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        {/* right hero section */}
-        <div className="">
-          <img
-            src={
-              "https://cdni.iconscout.com/illustration/premium/thumb/yoga-instructor-3488551-2922405.png?f=webp"
-            }
-            alt="hero section Image"
-            className="w-96 rounded-[50%]"
-          />
-        </div>
       </div>
-      <div className="container mx-auto p-10 py-6 mb-10">
+      <div className="container mx-auto p-10 py-6 mb-10 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">Yoga Classes</h1>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-10">
           <div className="flex flex-col text-center items-center justify-center">
@@ -82,12 +93,15 @@ export default function Home() {
         </div>
       </div>
       <div className="border container mx-auto"></div>
-      <div className="container mx-auto p-10 py-6">
+      <div className="container mx-auto p-10 py-6 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">Naturopathy Theraphies</h1>
         <div className="flex flex-col justify-center items-center my-10 gap-10">
           <img
-            src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2ab37bf4-074b-496b-ad0b-6fa2dc0cffe5/dfzvmlt-c777f8a0-b0ea-44d2-a447-79e66d5415c4.png/v1/fill/w_320,h_380/chakras_map_svg_by_revinchristianhatol_dfzvmlt-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzgwIiwicGF0aCI6IlwvZlwvMmFiMzdiZjQtMDc0Yi00OTZiLWFkMGItNmZhMmRjMGNmZmU1XC9kZnp2bWx0LWM3NzdmOGEwLWIwZWEtNDRkMi1hNDQ3LTc5ZTY2ZDU0MTVjNC5wbmciLCJ3aWR0aCI6Ijw9MzIwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.CMZ8_ObH31E-AmwJ1-QvWVn9eGx8DYWa3GTLccupPjo"
+            src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2ab37bf4-074b-496b-ad0b-6fa2dc0cffe5/dfzvmlt-c777f8a0-b0ea-44d2-a447-79e66d5415c4.png/v1/fill/w_320,h_380/chakras_map_svg_by_revinchristianhatol_dfzvmlt-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzgwIiwicGF0aCI6IlwvZlwvMmFiMzdiZjQtMDc0Yi00OTZiLWFkMGItNmZhMmRjMGNmZmU1XC9kZnp2bWx0LWM3NzdmOGEwLWIwZWEtNDRkMi1hNDQ3LTc5ZTY2ZDU0MTVjNC5wbmciLCJ3aWR0aCI6Ijw9MzIwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlLm9wZXJhdGlvbnMiXX0.CMZ8_ObH31E-AmwJ1-QvWVn9eGx8DYWa3GTLccupPjo"
             alt=""
+            style={{
+              filter: "drop-shadow(0 4px 24px #fff) drop-shadow(0 2px 8px #a855f7)"
+            }}
           />
           <p className="italic text-center">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque,
@@ -118,7 +132,7 @@ export default function Home() {
         </div>
       </div>
       <div className="border container mx-auto"></div>
-      <div className="container mx-auto p-10 py-6">
+      <div className="container mx-auto p-10 py-6 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">Trekking and Retreats</h1>
         <div className="flex flex-wrap justify-center items-center my-10 gap-4">
           <Card />
@@ -130,7 +144,7 @@ export default function Home() {
         </div>
       </div>
       <div className="border container mx-auto"></div>
-      <div className="container p-10 mx-auto py-6">
+      <div className="container p-10 mx-auto py-6 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">Doctor Consultanoy</h1>
         <div className="flex flex-wrap justify-center items-center my-10 gap-4">
           <FAQ />

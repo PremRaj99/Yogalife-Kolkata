@@ -1,13 +1,15 @@
 import { Alert, Button, Label, Spinner, TextInput, Textarea } from "flowbite-react";
-import { HiMail } from "react-icons/hi";
+import { HiMail, HiUser } from "react-icons/hi";
 import React, { useState } from "react";
 import { IoMdCall } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { BsFacebook, BsInstagram, BsTwitterX, BsYoutube } from "react-icons/bs";
 import CTA from "../components/CTA"
+import HeadingPage from "../components/common/HeadingPage";
 
 export default function ContactUs() {
   const [formdata, setFormData] = useState({
+    name: "",
     email: "",
     phone: "",
     message: "",
@@ -22,6 +24,7 @@ export default function ContactUs() {
     setLoading(true);
     e.preventDefault();
     if (
+      formdata.name === "" ||
       formdata.email === "" ||
       formdata.phone === "" ||
       formdata.message === ""
@@ -29,18 +32,50 @@ export default function ContactUs() {
       setLoading(false);
       return setError("Please fill all the fields");
     }
-    console.log(formdata);
-    setLoading(false);
-    setSuccess("Thank you! Your message has been sent Successfully.");
+    try {
+      const res = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formdata),
+      })
+
+      const data = await res.json();
+      if (!res.status === 201) {
+        setLoading(false);
+        return setError(data.message);
+      }
+      setSuccess("Thank you! Your message has been sent Successfully.");
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      return setError(data.message);
+    }
   };
 
   return (
     <div className="w-full">
+      <HeadingPage>Contact Us</HeadingPage>
       <div className="my-10 flex items-center justify-center">
         <form
           className="flex-1 flex max-w-md flex-col gap-4"
           onSubmit={handleSubmit}
         >
+          <div className="px-4">
+            <div className="mb-2 block">
+              <Label htmlFor="name" value="Your name" />
+            </div>
+            <TextInput
+              id="name"
+              type="text"
+              icon={HiUser}
+              placeholder="Name"
+              value={formdata.name}
+              onChange={(e) =>
+                setFormData({ ...formdata, name: e.target.value })
+              }
+              required
+            />
+          </div>
           <div className="px-4">
             <div className="mb-2 block">
               <Label htmlFor="email4" value="Your email" />
@@ -49,7 +84,7 @@ export default function ContactUs() {
               id="email4"
               type="email"
               icon={HiMail}
-              placeholder="name@flowbite.com"
+              placeholder="name@example.com"
               value={formdata.email}
               onChange={(e) =>
                 setFormData({ ...formdata, email: e.target.value })

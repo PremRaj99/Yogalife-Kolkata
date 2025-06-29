@@ -6,12 +6,12 @@ import { Link, useLocation } from "react-router-dom";
 export default function Header() {
   const path = useLocation().pathname;
   return (
-    <div className="border-b-2 bg-slate-100 sticky top-0 z-10">
+    <div className="border-b-2 bg-slate-100 z-50 sticky top-0 z-10">
       <Navbar fluid rounded className=" container mx-auto bg-slate-100">
         <Navbar.Brand as={Link} to="/">
           <img
             src="/kol-logo.png"
-            className="mr-3 h-6 sm:h-12"
+            className="mr-3 h-12"
             alt="Yogalife Kolkata Logo"
           />
           <span className="self-center whitespace-nowrap text-xl font-bold text-[#AF2226]">

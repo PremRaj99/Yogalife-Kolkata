@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 export default function CTA() {
   return (
-    <div className="w-full flex-col-reverse py-4 pb-10 sm:pb-0 sm:py-0 sm:flex-row mx-auto flex min-h-[480px] justify-center items-center gap-10 bg-indigo-500">
+    <div className="w-full flex-col-reverse py-4 pb-10 sm:pb-0 sm:py-0 sm:flex-row mx-auto flex min-h-[480px] justify-center items-center gap-4 bg-indigo-500">
       {/* left hero section */}
-      <div className="leading-8">
-        <h1 className="font-bold text-white text-5xl mb-8 sm:mb-4">
+      <div className="leading-8 p-8">
+        <h1 className="font-bold text-white text-5xl text-center mb-8 sm:mb-4">
           Yogalife Kolkata
         </h1>
         <p className="text-gray-200 px-3 text-center sm:text-left flex flex-col leading-6">

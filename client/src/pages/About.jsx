@@ -1,10 +1,12 @@
 import React from "react";
 import CTA from "../components/CTA";
 import YogaClassCard from "../components/YogaClassCard";
+import HeadingPage from "../components/common/HeadingPage";
 
 export default function About() {
   return (
     <div className="w-ful">
+      <HeadingPage>About Us</HeadingPage>
       <div className="container mx-auto my-5 p-5">
         <h1 className="font-bold text-2xl">About Us</h1>
         <div className="py-10">
