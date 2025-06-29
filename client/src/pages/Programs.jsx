@@ -8,7 +8,7 @@ export default function Programs() {
       <HeadingPage>Program</HeadingPage>
       <div className="container mx-auto p-10 py-6 mb-10 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">Yoga Programs & Workshops</h1>
-        <div className="grid grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {yogaPrograms.map((item, index) => (
             <div
               key={index}
