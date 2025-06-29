@@ -21,7 +21,7 @@ export default function Home() {
         />
 
         {/* Content Layer */}
-        <div className="relative z-10 flex flex-col justify-center items-center gap-4 p-8 bg-black bg-opacity-90 w-full h-full">
+        <div className="relative z-10 flex flex-col justify-center items-center gap-4 p-8 bg-black bg-opacity-70 w-full h-full">
           {/* Your content goes here */}
           <img
             src="/kol-logo.png"
