@@ -81,7 +81,7 @@ export default function Home() {
       image: "./ayurvedaImage/Virechan.webp",
     },
     {
-      title: "Basti",
+      title: "Vasti",
       description: "Medicated enema for deep colon cleansing.",
       image: "./ayurvedaImage/Vasti.jpg",
     },
@@ -99,6 +99,18 @@ export default function Home() {
       title: "Ayurvedic Treatment and Medicine Support",
       description: "Natural remedies to restore health and balance.",
       image: "./ayurvedaImage/AyurvedicTreatment.jpg",
+    },
+    {
+      title: "Viddhakarma",
+      description:
+        "A specialized Ayurvedic technique using fine needles to relieve pain and improve energy flow.",
+      image: "./ayurvedaImage/Viddhakarma.jpeg",
+    },
+    {
+      title: "Agnikarma",
+      description:
+        "A therapeutic heat-based treatment used to manage chronic pain, inflammation, and musculoskeletal disorders.",
+      image: "./ayurvedaImage/Agnikarma.jpeg",
     },
   ];
 

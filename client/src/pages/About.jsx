@@ -16,61 +16,71 @@ Founder & Director of Yogalife Kolkata and Ishawarah Foundation.`,
       title: "Guru Ji",
       name: "Dr. Radheshyam Mishra",
       shortIntro: `Renowned International Yoga Guru  
-Founder & Director of Yogalife Global (UYLS) and Yogalife Ashram – Brazil & India.`,
+Founder & Director of Yogalife Global (UYLS) and Yogalife Ashram – Brazil & India.  
+President of Yogalife Kolkata.`,
     },
     {
-      image: "./memberImage/rituGoyal.jpg", // Update image if available
+      image: "./memberImage/rituGoyal.jpg",
       title: "Psychotherapist",
       name: "Ritu Goel",
       shortIntro: `Certified Psychotherapist  
-Holds a Master's degree and Diploma in Psychotherapy.`,
+Holds a Master's degree and Diploma in Psychotherapy.  
+Secretary of Yogalife Kolkata.`,
     },
     {
-      image: "./memberImage/Arkaprava.jpg", // Update image if available
-      title: "Ayurvedachariya",
-      name: "Dr. Arkaprava Jana",
+      image: "./memberImage/Arkaprava.jpg",
+      title: "Ayurvedacharya",
+      name: "Vaidya (Dr).Arkaprava Jana",
       shortIntro: `BAMS (WBUHS), Director of Ayuprava Holistic Healthcare Clinic  
 Official Representative of Yogalife Kolkata.`,
     },
     {
-      image: "./memberImage/Dr.-Ashish-Arya.jpg", // Update image if available
+      image: "./memberImage/Dr.-Ashish-Arya.jpg",
       title: "Yoga Master",
       name: "Dr. Ashish Arya (Aadi Dev)",
-      shortIntro: `BHMS,RYT 500 and Master degree in yoga therapy(Svyasa University Banglore)`,
+      shortIntro: `BHMS, RYT 500, and Master's degree in Yoga Therapy (S-VYASA University, Bangalore).  
+Joint Secretary of Yogalife Kolkata.`,
+    },
+    {
+      image: "./memberImage/tanmay.jpg",
+      title: "Yoga Teacher",
+      name: "Tonmoy Roy",
+      shortIntro: `RYT 300 and Bachelor's degree in Yoga Therapy.  
+Convener, Publicity and Events at Yogalife Kolkata.`,
     },
   ];
 
   const Teachers = [
     {
-      name: "Tonmoy Roy",
+      name: "RYT 300 Tonmoy Roy",
       image: "./memberImage/tanmay.jpg",
     },
     {
-      name: "Silpa Majumder",
+      name: "RYT 500 Silpa Majumder",
       image: "./memberImage/shilpa.jpg",
     },
     {
-      name: "Puja Prashad",
+      name: "RYT 200 Puja Prashad",
       image: "./memberImage/puja.jpg",
     },
     {
-      name: "Shweta vats",
+      name: "RYT 200 Shweta vats",
       image: "./memberImage/sweta.jpg",
     },
     {
-      name: "Shradha chhaochharia",
+      name: "RYT 200 Shradha chhaochharia",
       image: "./memberImage/shradha.jpg",
     },
     {
-      name: "Seema Rawat",
+      name: "RYT 200 Seema Rawat",
       image: "./memberImage/shimaRawat.jpg",
     },
     {
-      name: "Mridul dahaya",
+      name: "RYT 200 Mridul dahaya",
       image: "./memberImage/mridulDaiya.jpg",
     },
     {
-      name: "Vijay Laxmi",
+      name: "RYT 200 Vijay Laxmi",
       image: "./memberImage/vijayLaxmi.jpg",
     },
   ];
