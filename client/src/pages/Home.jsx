@@ -133,6 +133,8 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* -------------------- NATUROPATHY THERAPIES ---------------- */}
       <div className="border container mx-auto"></div>
       <div className="container mx-auto p-10 py-6 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">Naturopathy Theraphies</h1>
@@ -155,6 +157,46 @@ export default function Home() {
             At our center, we offer a wide range of therapies designed to
             detoxify, rejuvenate, and heal — without relying on synthetic drugs
             or invasive procedures.
+          </p>
+          <p className="font-semibold text-center">
+            Our Core Therapies Include:
+          </p>
+          <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
+            {naturopathy.map((item, index) => (
+              <div key={index} className="flex flex-col items-center gap-2">
+                <img
+                  src={item.image}
+                  className="w-32 aspect-square object-cover"
+                  alt=""
+                />
+                <strong>{item.title}</strong>
+                <p className="text-xs text-center max-w-[40ch]">
+                  {item.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="border container mx-auto"></div>
+      <div className="container mx-auto p-10 py-6 bg-white bg-opacity-80 rounded">
+        <h1 className="text-2xl font-bold">Ayurveda & Holistic Wellness</h1>
+        <div className="flex flex-col justify-center items-center my-10 gap-4">
+          <img
+            src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2ab37bf4-074b-496b-ad0b-6fa2dc0cffe5/dfzvmlt-c777f8a0-b0ea-44d2-a447-79e66d5415c4.png/v1/fill/w_320,h_380/chakras_map_svg_by_revinchristianhatol_dfzvmlt-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzgwIiwicGF0aCI6IlwvZlwvMmFiMzdiZjQtMDc0Yi00OTZiLWFkMGItNmZhMmRjMGNmZmU1XC9kZnp2bWx0LWM3NzdmOGEwLWIwZWEtNDRkMi1hNDQ3LTc5ZTY2ZDU0MTVjNC5wbmciLCJ3aWR0aCI6Ijw9MzIwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlLm9wZXJhdGlvbnMiXX0.CMZ8_ObH31E-AmwJ1-QvWVn9eGx8DYWa3GTLccupPjo"
+            alt=""
+            style={{
+              filter:
+                "drop-shadow(0 4px 24px #fff) drop-shadow(0 2px 8px #a855f7)",
+            }}
+          />
+          <p className="text-center">
+            At our center, we offer a wide range of therapies designed to
+            detoxify, rejuvenate, and heal — without relying on synthetic drugs
+            or invasive procedures.
+          </p>
+          <p className="italic text-center">
+            Natural healing for body, mind, and spirit.
           </p>
           <p className="font-semibold text-center">
             Our Core Therapies Include:
