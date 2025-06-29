@@ -8,8 +8,9 @@ export default function About() {
       image: "./memberImage/shambhu-about-image.jpg",
       title: "Pandit Ji",
       name: "Yogacharya Shambhu Raj Pandit",
-      shortIntro: `International Yoga Guru  
-Founder & Director of Yogalife Kolkata and Ishawarah Foundation.`,
+      shortIntro: `nternational Yoga Guru
+Founder & Director of Yogalife Kolkata and Ishawarah Foundation.
+Spiritual and Medical Researcher, Writer, and Social Worker.`,
     },
     {
       image: "./memberImage/Dr.-RadheShyam-Mishra.jpeg",
