@@ -238,7 +238,7 @@ export default function Home() {
             }}
           />
           <h1 className="text-3xl font-bold text-white text-center">
-            Welcome to the Yogalife
+            Welcome to the Yogalife Kolkata
           </h1>
           <p className="text-gray-300 px-3 text-center flex flex-wrap items-center justify-center gap-2 leading-6">
             Building the Body <span className="text-red-200 scale-125">|</span>
