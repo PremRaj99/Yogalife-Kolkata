@@ -84,6 +84,14 @@ Convener, Publicity and Events at Yogalife Kolkata.`,
       name: "RYT 200 Vijay Laxmi",
       image: "./memberImage/vijayLaxmi.jpg",
     },
+    {
+      name: "RYT 200 Shital Gupta",
+      image: "./memberImage/sital.jpg",
+    },
+    {
+      name: "RYT 200 Monika Khadkia",
+      image: "./memberImage/monika.jpg",
+    },
   ];
 
   return (

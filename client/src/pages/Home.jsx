@@ -413,7 +413,7 @@ export default function Home() {
       </div>
       <div className="p-10 container mx-auto">
         <h1 className="container mx-auto text-2xl font-bold">
-          Patient's Feedback
+          Testimonials feedback
         </h1>
         <Testimonial />
       </div>
