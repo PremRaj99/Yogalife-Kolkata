@@ -22,8 +22,10 @@ export default function Programs() {
                 className="aspect-square object-cover rounded-md"
                 alt=""
               />
-              <h2 className="md:text-xl font-medium mb-2">{item.title}</h2>
-              <p className="text-xs text-gray-600">{item.description}</p>
+              <h2 className="text-xl font-medium mb-2">{item.title}</h2>
+              <p className="max-w-[30ch] text-sm text-gray-600">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
