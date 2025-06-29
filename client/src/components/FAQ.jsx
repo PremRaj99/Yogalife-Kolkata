@@ -5,7 +5,7 @@ export default function FAQ() {
     {
       question: "Why should I join your yoga classes?",
       answer:
-        "We offer a range of yoga programs tailored to different needs and goals:\n- General Yoga Classes: Perfect for overall health, flexibility, and stress relief.\n- Theoretical Classes: Dive deeper into yoga philosophy and ancient wisdom.\n- Private Sessions: Personalized one-on-one classes for individual attention.\n- Workshops & Seminars: Explore specific topics in yoga, wellness, and healing.\n- One-to-One Consultations: Customized guidance for your unique body and mind.\n- Consultations: Professional advice on wellness, yoga lifestyle, and more.\n- Teacher Training Course (TTC): For those who want to become certified yoga instructors.",
+        "We offer a range of yoga programs tailored to different needs and goals:<br>- General Yoga Classes: Perfect for overall health, flexibility, and stress relief.<br>- Theoretical Classes: Dive deeper into yoga philosophy and ancient wisdom.<br>- Private Sessions: Personalized one-on-one classes for individual attention.<br>- Workshops & Seminars: Explore specific topics in yoga, wellness, and healing.<br>- One-to-One Consultations: Customized guidance for your unique body and mind.<br>- Consultations: Professional advice on wellness, yoga lifestyle, and more.<br>- Teacher Training Course (TTC): For those who want to become certified yoga instructors.",
     },
     {
       question: "What is the counselling fee?",
@@ -36,9 +36,10 @@ export default function FAQ() {
           <Accordion.Panel key={index}>
             <Accordion.Title>{faq.question}</Accordion.Title>
             <Accordion.Content>
-              <p className="mb-2 text-gray-500 dark:text-gray-400">
-                {faq.answer}
-              </p>
+              <p
+                className="mb-2 text-gray-500 dark:text-gray-400"
+                dangerouslySetInnerHTML={{ __html: faq.answer }}
+              ></p>
             </Accordion.Content>
           </Accordion.Panel>
         ))}

@@ -61,11 +61,18 @@ export default function FooterComponents() {
             year={new Date().getFullYear()}
           />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsTwitter} />
-            <Footer.Icon href="#" icon={BsGithub} />
-            <Footer.Icon href="#" icon={BsDribbble} />
+            <Footer.Icon
+              href="https://www.facebook.com/share/19Wox1VPcU/?mibextid=wwXIfr"
+              icon={BsFacebook}
+            />
+            <Footer.Icon
+              href="https://www.instagram.com/yogalifekolkata?utm_source=qr"
+              icon={BsInstagram}
+            />
+            <Footer.Icon
+              href="https://x.com/Shambhu40287904?t=fD_gnGm5cuv5cH4YyLgqxA&s=08"
+              icon={BsTwitter}
+            />
           </div>
         </div>
       </div>

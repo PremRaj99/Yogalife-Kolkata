@@ -8,7 +8,7 @@ export default function About() {
       image: "./memberImage/shambhu-about-image.jpg",
       title: "Pandit Ji",
       name: "Yogacharya Shambhu Raj Pandit",
-      shortIntro: `nternational Yoga Guru
+      shortIntro: `International Yoga Guru
 Founder & Director of Yogalife Kolkata and Ishawarah Foundation.
 Spiritual and Medical Researcher, Writer, and Social Worker.`,
     },
@@ -45,7 +45,7 @@ Joint Secretary of Yogalife Kolkata.`,
     {
       image: "./memberImage/tanmay.jpg",
       title: "Yoga Teacher",
-      name: "Tonmoy Roy",
+      name: "Tanmoy Roy",
       shortIntro: `RYT 300 and Bachelor's degree in Yoga Therapy.  
 Convener, Publicity and Events at Yogalife Kolkata.`,
     },
@@ -53,7 +53,7 @@ Convener, Publicity and Events at Yogalife Kolkata.`,
 
   const Teachers = [
     {
-      name: "RYT 300 Tonmoy Roy",
+      name: "RYT 300 Tanmoy Roy",
       image: "./memberImage/tanmayRoy.jpg",
     },
     {

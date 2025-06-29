@@ -406,7 +406,7 @@ export default function Home() {
       {/* ------------------  DOCTOR CONSULTANCY ---------------------- */}
       <div className="border container mx-auto"></div>
       <div className="container p-10 mx-auto py-6 bg-white bg-opacity-80 rounded">
-        <h1 className="text-2xl font-bold">Doctor Consultanoy</h1>
+        <h1 className="text-2xl font-bold">FAQs</h1>
         <div className="flex flex-wrap justify-center items-center my-10 gap-4">
           <FAQ />
         </div>

@@ -15,6 +15,9 @@ export default function Blogs() {
                 <video controls src="./vlog/Vlog4.mp4"></video>
                 <video controls src="./vlog/Vlog5.mp4"></video>
                 <video controls src="./vlog/Vlog6.mp4"></video>
+                <video controls src="./vlog/Vlog7.mp4"></video>
+                <video controls src="./vlog/Vlog8.mp4"></video>
+                <video controls src="./vlog/Vlog9.mp4"></video>
               </div>
             </div>
       <CTA />
