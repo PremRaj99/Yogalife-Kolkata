@@ -8,17 +8,18 @@ export default function CardComponent({
   desc = "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
 }) {
   return (
-    <Card
-      className="max-w-xs"
-      imgAlt="Meaningful alt text for an image that is not purely decorative"
-      imgSrc={image}
-    >
-      <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-        {title}
-      </h5>
-      <p className="font-normal text-sm text-gray-700 dark:text-gray-400">
-        {desc}
-      </p>
-    </Card>
+    <div className="w-full rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800">
+      <img
+        className="w-full h-48 aspect-square object-cover"
+        src={image}
+        alt="Meaningful alt text for an image that is not purely decorative"
+      />
+      <div className="p-4">
+        <h5 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+          {title}
+        </h5>
+        <p className="mt-2 text-xs text-gray-700 dark:text-gray-400">{desc}</p>
+      </div>
+    </div>
   );
 }

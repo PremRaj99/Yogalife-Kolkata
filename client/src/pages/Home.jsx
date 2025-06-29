@@ -379,7 +379,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold">
           Yoga and wellness Retreat (Domestic & International)
         </h1>
-        <div className="flex flex-wrap justify-center items-center my-10 gap-4">
+        <div className="grid md:grid-cols-3 justify-center items-center my-10 gap-4">
           {retreats.map((retreat, index) => (
             <Card
               key={index}
