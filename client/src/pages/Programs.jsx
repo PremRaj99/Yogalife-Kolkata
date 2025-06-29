@@ -19,10 +19,8 @@ export default function Programs() {
                 className=""
                 alt=""
               />
-              <h2 className="text-xl font-medium mb-2">{item.title}</h2>
-              <p className="w-[30ch] text-sm text-gray-600">
-                {item.description}
-              </p>
+              <h2 className="md:text-xl font-medium mb-2">{item.title}</h2>
+              <p className="text-xs text-gray-600">{item.description}</p>
             </div>
           ))}
         </div>
