@@ -116,8 +116,8 @@ export default function Home() {
 
       {/* ------------------- YOGA PROGRAMS AND WORKSHOPS ------------ */}
       <div className="container mx-auto p-10 py-6 mb-10 bg-white bg-opacity-80 rounded">
-        <h1 className="text-2xl font-bold mb-6">Yoga Programs & Workshops</h1>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <h1 className="text-2xl font-bold">Yoga Programs & Workshops</h1>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {yogaPrograms.map((item, index) => (
             <div
               key={index}
@@ -128,8 +128,8 @@ export default function Home() {
                 className="aspect-square object-cover rounded-md"
                 alt=""
               />
-              <h2 className="md:text-xl font-medium mb-2 h-14">{item.title}</h2>
-              <p className="text-xs text-gray-600">
+              <h2 className="text-xl font-medium mb-2">{item.title}</h2>
+              <p className="w-[30ch] text-sm text-gray-600">
                 {item.description}
               </p>
             </div>
