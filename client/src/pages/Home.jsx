@@ -48,6 +48,72 @@ export default function Home() {
     },
   ];
 
+  const ayurvedaTherapies = [
+    {
+      title: "Nasya",
+      description: "Nasal therapy to clear sinuses and calm the mind.",
+      image: "./ayurvedaImage/nasya.webp",
+    },
+    {
+      title: "Snehapan",
+      description: "Internal oleation to prepare the body for detox.",
+      image: "./ayurvedaImage/snehapanam.jpg",
+    },
+    {
+      title: "Abhyang",
+      description: "Full-body oil massage for relaxation and balance.",
+      image: "./ayurvedaImage/Abhyang.jpg",
+    },
+    {
+      title: "Swedan",
+      description: "Herbal steam therapy to open pores and release toxins.",
+      image: "./ayurvedaImage/Swedan.jpg",
+    },
+    {
+      title: "Vaman",
+      description: "Therapeutic emesis to remove excess Kapha dosha.",
+      image: "./ayurvedaImage/Vaman.png",
+    },
+    {
+      title: "Virechan",
+      description: "Purgation therapy for liver and digestive detox.",
+      image: "./ayurvedaImage/Virechan.webp",
+    },
+    {
+      title: "Basti",
+      description: "Medicated enema for deep colon cleansing.",
+      image: "./ayurvedaImage/Vasti.jpg",
+    },
+    {
+      title: "Shirodhara",
+      description: "Warm oil therapy to calm the mind and nerves.",
+      image: "./ayurvedaImage/Shirodhara.png",
+    },
+    {
+      title: "Nadiparikshan",
+      description: "Pulse diagnosis to assess body-mind balance.",
+      image: "./ayurvedaImage/Nadiparikshan.jpg",
+    },
+    {
+      title: "Ayurvedic Treatment and Medicine Support",
+      description: "Natural remedies to restore health and balance.",
+      image: "./ayurvedaImage/AyurvedicTreatment.jpg",
+    },
+  ];
+
+  const retreats = [
+    {
+      title: "Goa Yoga Wellness Retreat",
+      description: "",
+      image: "",
+    },
+    {
+      title: "Kerla Yoga and Wellness Retreat",
+      description: "",
+      image: "",
+    },
+  ];
+
   return (
     <div className="w-full overflow-hidden">
       <div className="relative w-screen h-screen overflow-hidden">
@@ -178,6 +244,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* -------------------- AYURVEDA AND HOLISTIC WELLNESS ----------- */}
       <div className="border container mx-auto"></div>
       <div className="container mx-auto p-10 py-6 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">Ayurveda & Holistic Wellness</h1>
@@ -202,36 +270,42 @@ export default function Home() {
             Our Core Therapies Include:
           </p>
           <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
-            {naturopathy.map((item, index) => (
+            {ayurvedaTherapies.map((item, index) => (
               <div key={index} className="flex flex-col items-center gap-2">
                 <img
-                  src={item.iamge}
-                  className="w-32 aspect-square object-cover"
+                  src={item.image}
+                  className="w-32 rounded-full aspect-square object-cover"
                   alt=""
                 />
-                <strong>{item.title}</strong>
+                <strong className="text-center">{item.title}</strong>
                 <p className="text-xs text-center max-w-[40ch]">
-                  {item.answer}
+                  {item.description}
                 </p>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* -------------------- YOGA AND WELLNESS RETREAT ---------------- */}
       <div className="border container mx-auto"></div>
       <div className="container mx-auto p-10 py-6 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">
           Yoga and wellness Retreat (Domestic & International)
         </h1>
         <div className="flex flex-wrap justify-center items-center my-10 gap-4">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {retreats.map((retreats, index) => {
+            <Card
+              key={index}
+              title={retreats.title}
+              desc={retreats.description}
+              image={retreats.image}
+            />;
+          })}
         </div>
       </div>
+
+      {/* ------------------  DOCTOR CONSULTANCY ---------------------- */}
       <div className="border container mx-auto"></div>
       <div className="container p-10 mx-auto py-6 bg-white bg-opacity-80 rounded">
         <h1 className="text-2xl font-bold">Doctor Consultanoy</h1>
