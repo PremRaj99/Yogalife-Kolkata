@@ -36,7 +36,7 @@ Official Representative of Yogalife Kolkata.`,
     },
     {
       image: "./memberImage/Dr.-Ashish-Arya.jpg", // Update image if available
-      title: "Vice president",
+      title: "Yoga Master",
       name: "Dr. Ashish Arya (Aadi Dev)",
       shortIntro: `BHMS,RYT 500 and Master degree in yoga therapy(Svyasa University Banglore)`,
     },
@@ -71,6 +71,10 @@ Official Representative of Yogalife Kolkata.`,
       name: "Mridul dahaya",
       image: "./memberImage/mridulDaiya.jpg",
     },
+    {
+      name: "Vijay Laxmi",
+      image: "./memberImage/vijayLaxmi.png"
+    }
   ];
 
   return (
@@ -91,7 +95,7 @@ Official Representative of Yogalife Kolkata.`,
         ))}
       </div>
       {/* Our Expert Teacher */}
-      <h1 className="container mx-auto px-5 mt-10 font-bold text-2xl">Our Expert Techer</h1>
+      <h1 className="container mx-auto px-5 mt-10 font-bold text-2xl">Our Expert Teacher</h1>
       <div className="container grid md:grid-cols-4 grid-cols-2 mx-auto gap-2 my-5 p-5">
         {Teachers.map((memeber, index) => (
           <AboutMemberCard

@@ -399,6 +399,7 @@ export default function Home() {
           <FAQ />
         </div>
       </div>
+      <h1 className="container mx-auto text-2xl font-bold">Patient's Feedback</h1>
       <Testimonial />
       <CTA />
     </div>

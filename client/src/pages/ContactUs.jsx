@@ -6,13 +6,12 @@ import {
   TextInput,
   Textarea,
 } from "flowbite-react";
-import { HiMail, HiUser } from "react-icons/hi";
-import React, { useState } from "react";
-import { IoMdCall } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { BsFacebook, BsInstagram, BsTwitterX, BsYoutube } from "react-icons/bs";
-import CTA from "../components/CTA";
+import { HiMail, HiUser } from "react-icons/hi";
+import { IoMdCall } from "react-icons/io";
 import HeadingPage from "../components/common/HeadingPage";
+import emailjs from "@emailjs/browser";
 
 export default function ContactUs() {
   const [formdata, setFormData] = useState({
@@ -26,10 +25,11 @@ export default function ContactUs() {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     setError(null);
     setSuccess(null);
     setLoading(true);
-    e.preventDefault();
+
     if (
       formdata.name === "" ||
       formdata.email === "" ||
@@ -39,23 +39,42 @@ export default function ContactUs() {
       setLoading(false);
       return setError("Please fill all the fields");
     }
-    try {
-      const res = await fetch("/api/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formdata),
-      });
 
-      const data = await res.json();
-      if (!res.status === 201) {
-        setLoading(false);
-        return setError(data.message);
-      }
-      setSuccess("Thank you! Your message has been sent Successfully.");
-      setLoading(false);
+    const templateParams = {
+      title: formdata.name,
+      name: formdata.name,
+      email: formdata.email,
+      phone: formdata.phone,
+      message: formdata.message,
+      date: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+    };
+
+    try {
+      const result = await emailjs.send(
+        "service_dvbzjwi",
+        "template_ozvoou1",
+        {
+          ...templateParams,
+          senderEmail: templateParams.email,
+          receiverEmail: "yogalifekolkata@gmail.com",
+          email: "",
+        },
+        "41HTFVEoHyRkPsjJP"
+      );
+      const userResult = await emailjs.send(
+        "service_dvbzjwi",
+        "template_as1cx7p",
+        templateParams,
+        "41HTFVEoHyRkPsjJP"
+      );
+      console.log(result.text);
+      setSuccess("Thank you! Your message has been sent successfully.");
+      setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
+      console.error(error);
+      setError("Failed to send message. Please try again.");
+    } finally {
       setLoading(false);
-      return setError(data.message);
     }
   };
 
