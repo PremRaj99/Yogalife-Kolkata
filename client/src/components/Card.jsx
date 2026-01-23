@@ -8,11 +8,12 @@ export default function CardComponent({
   desc = "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
 }) {
   return (
-    <div className="w-full rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800">
+    <div className="w-full rounded-2xl overflow-hidden shadow-md bg-white dark:bg-gray-800">
       <img
         className="w-full h-48 aspect-square object-cover"
         src={image}
-        alt="Meaningful alt text for an image that is not purely decorative"
+        alt={title}
+        style={{ WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)", maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)"}}
       />
       <div className="p-4">
         <h5 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">

@@ -5,7 +5,7 @@ import HeadingPage from "../components/common/HeadingPage";
 export default function About() {
   const members = [
     {
-      image: "./memberImage/shambhu-about-image.jpg",
+      image: "./memberImage/shambhu-about-image.jpeg",
       title: "Pandit Ji",
       name: "Yogacharya Shambhu Raj Pandit",
       shortIntro: `International Yoga Guru
@@ -97,10 +97,10 @@ Convener, Publicity and Events at Yogalife Kolkata.`,
   return (
     <div className="w-ful overflow-hidden">
       <HeadingPage>About Us</HeadingPage>
-      <div className="container mx-auto my-5 p-5">
+      <div className="container max-w-6xl mx-auto mt-4 px-4">
         <h1 className="font-bold text-2xl">About Us</h1>
       </div>
-      <div className="container grid md:grid-cols-4 grid-cols-2 mx-auto gap-2 my-5 p-5">
+      <div className="container grid md:grid-cols-4 grid-cols-2 max-w-6xl mx-auto gap-2 p-4">
         {members.map((memeber, index) => (
           <AboutMemberCard
             key={index}
@@ -112,10 +112,10 @@ Convener, Publicity and Events at Yogalife Kolkata.`,
         ))}
       </div>
       {/* Our Expert Teacher */}
-      <h1 className="container mx-auto px-5 mt-10 font-bold text-2xl">
+      <h1 className="container max-w-6xl mx-auto px-4 mt-4 font-bold text-2xl">
         Our Expert Teacher
       </h1>
-      <div className="container grid md:grid-cols-4 grid-cols-2 mx-auto gap-2 my-5 p-5">
+      <div className="container grid md:grid-cols-4 grid-cols-2 max-w-6xl mx-auto gap-2 mb-4 p-4">
         {Teachers.map((memeber, index) => (
           <AboutMemberCard
             key={index}

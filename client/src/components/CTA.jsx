@@ -7,8 +7,8 @@ export default function CTA() {
   return (
     <div className="w-full flex-col-reverse py-4 pb-10 sm:pb-0 sm:py-0 sm:flex-row mx-auto flex min-h-[480px] justify-center items-center bg-indigo-500">
       {/* left hero section */}
-      <div className="leading-8 p-8">
-        <h1 className="font-bold text-white text-5xl text-center mb-8 sm:mb-4">
+      <div className="leading-8 p-4">
+        <h1 className="font-bold text-white text-4xl text-center mb-8 sm:mb-4">
           Yogalife Kolkata
         </h1>
         <p className="text-gray-200 px-3 text-center sm:text-left flex flex-col leading-6">
@@ -42,7 +42,7 @@ export default function CTA() {
         </div>
       </div>
       {/* right hero section */}
-      <div className="">
+      <div className="overflow-hidden">
         <img
           src={
             "kol-logo.png"

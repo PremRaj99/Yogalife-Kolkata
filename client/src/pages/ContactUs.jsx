@@ -181,12 +181,12 @@ export default function ContactUs() {
           )}
         </form>
       </div>
-      <div className="container mx-auto gap-4 flex items-center">
+      <div className="container max-w-6xl mx-auto gap-4 flex items-center">
         <div className="flex-1 border"></div>
         <p className="text-gray-500">OR</p>
         <div className="flex-1 border"> </div>
       </div>
-      <div className="flex gap-10 items-center justify-center my-10 text-5xl text-gray-800">
+      <div className="flex gap-6 items-center justify-center my-10 text-2xl text-gray-800">
         <a href="https://www.facebook.com/share/19Wox1VPcU/?mibextid=wwXIfr">
           <BsFacebook className="text-blue-700 hover:text-blue-600 transition-all duration-75" />
         </a>

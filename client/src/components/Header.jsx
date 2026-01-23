@@ -6,8 +6,8 @@ import { Link, useLocation } from "react-router-dom";
 export default function Header() {
   const path = useLocation().pathname;
   return (
-    <div className="border-b-2 bg-slate-100 z-50 sticky top-0 z-10">
-      <Navbar fluid rounded className=" container mx-auto bg-slate-100">
+    <div className="border-b-2 bg-slate-100 z-50 sticky top-0">
+      <Navbar fluid rounded className=" container max-w-6xl mx-auto bg-slate-100">
         <Navbar.Brand as={Link} to="/">
           <img
             src="/kol-logo.png"

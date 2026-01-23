@@ -1,62 +1,62 @@
 export const yogaPrograms = [
   {
-    title: "Corporate Yoga and wellness",
+    title: "Corporate Wellness",
     description: "Boost employee health and workplace harmony.",
     image: "./yogaClases/CorporateYoga.jpg",
   },
   {
-    title: "General Yoga classes",
+    title: "General Yoga",
     description: "Daily yoga to improve flexibility and focus.",
     image: "./yogaClases/GeneralYoga.jpg",
   },
   {
-    title: "Advance Yoga classes and workshops",
+    title: "Advanced Yoga",
     description: "Deepen your practice with advanced postures.",
     image: "./yogaClases/AdvanceYoga.jpg",
   },
   {
-    title: "Specific yoga workshops and seminar",
+    title: "Yoga Workshops",
     description: "Focused sessions for targeted health benefits.",
     image: "./yogaClases/YogaWorkshopSeminar.jpg",
   },
   {
-    title: "Yoga teachers training certificate course",
+    title: "Teacher Training",
     description: "Become a certified and confident yoga teacher.",
     image: "./yogaClases/YogaTeachersTraining.jpg",
   },
   {
-    title: "Therapical yoga practice",
+    title: "Therapeutic Yoga",
     description: "Yoga for healing chronic pain and stress.",
     image: "./yogaClases/TherapicalYoga.jpg",
   },
   {
-    title: "Specific Orthopedic Therapy Yoga Session",
+    title: "Orthopedic Yoga",
     description: "Targeted yoga for joint and bone recovery.",
     image: "./yogaClases/OrthopedicYoga.jpg",
   },
   {
-    title: "Therapeutic Yoga for Cancer Care",
+    title: "Cancer Care Yoga",
     description: "Gentle yoga to support healing and recovery.",
     image: "./yogaClases/YogaCancer.jpg",
   },
   {
-    title: "Yoga and Psychotherapy Session",
+    title: "Yoga & Psychotherapy",
     description: "Blending yoga and talk therapy for inner healing.",
     image: "./yogaClases/YogaPhsycothrapySession.jpg",
   },
   {
-    title: "Kids Yoga and Wellness",
+    title: "Kids Yoga",
     description: "Fun yoga to boost kids' focus and flexibility.",
     image: "./yogaClases/KidsYogaAndWellness.jpg",
   },
   {
-    title: "Pregnancy Yoga and Wellness",
+    title: "Pregnancy Yoga",
     description: "Gentle yoga to support a healthy pregnancy journey.",
     image: "./yogaClases/PregnencyYoga.jpeg",
   },
   {
-    title: "Meditation and Healing Yoga Session",
+    title: "Meditation & Healing",
     description: "Calming practices to restore mind and body balance.",
-    image: "./yogaClases/MeditationYoga.jpg"
+    image: "./yogaClases/MeditationYoga.jpg",
   },
 ];
