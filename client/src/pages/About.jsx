@@ -21,7 +21,7 @@ Founder & Director of Yogalife Global (UYLS) and Yogalife Ashram – Brazil & In
 President of Yogalife Kolkata.`,
     },
     {
-      image: "./memberImage/rituGoyal.jpg",
+      image: "./memberImage/rituGoyal.jpeg",
       title: "Psychotherapist",
       name: "Ritu Goel",
       shortIntro: `Certified Psychotherapist  
