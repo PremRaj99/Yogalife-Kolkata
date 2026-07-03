@@ -1,22 +1,32 @@
 import { ArrowRight, Calendar, Clock, MapPin, Megaphone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import SectionWrapper from "../layout/SectionWrapper";
+import Papa from "papaparse";
+
+const newsheetCsvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJFOdlMKF_Vwx-F7UN1T7nGjbfkMw8FeL-97_gsuGcequQBBGpLecurFamRkIb7fYxjccQUvFCoECt/pub?gid=304718466&single=true&output=csv";
+const eventsheetCsvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJFOdlMKF_Vwx-F7UN1T7nGjbfkMw8FeL-97_gsuGcequQBBGpLecurFamRkIb7fYxjccQUvFCoECt/pub?gid=153098187&single=true&output=csv";
 
 export default function NoticeBoard() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [notice, setNotice] = useState({ news: [], events: [] });
 
   useEffect(() => {
-    fetch("https://api.jsonbin.io/v3/b/6a4752a6da38895dfe269608", {
-      "headers": {
-        "X-Access-Key": "$2a$10$hMTxFB15Ed4JTlrwbqkpYO3dclBYRrlvnYLoGpPLbm1EsIJmyjf.i"
-      },
-      "method": "GET"
-    })
-      .then(res => res.json())
-      .then(data => {
-        setNotice(data.record);
-      });
+    Papa.parse(newsheetCsvUrl, {
+      download: true,
+      header: true,
+      complete: (results) => {
+        console.log(results.data);
+        setNotice((prev) => ({ ...prev, news: results.data }));
+      }
+    });
+    Papa.parse(eventsheetCsvUrl, {
+      download: true,
+      header: true,
+      complete: (results) => {
+        console.log(results.data);
+        setNotice((prev) => ({ ...prev, events: results.data }));
+      }
+    });
   }, []);
 
   const closeModal = () => {
