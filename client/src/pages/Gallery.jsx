@@ -1,4 +1,4 @@
-import CTA from "../components/CTA";
+import CTA from "../components/common/CTA";
 import HeadingPage from "../components/common/HeadingPage";
 const images = Object.values(
   import.meta.glob("/src/assets/gallery/*.{jpg,jpeg,png,svg,webp}", {

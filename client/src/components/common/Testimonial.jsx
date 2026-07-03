@@ -1,13 +1,38 @@
+import SectionWrapper from "../layout/SectionWrapper";
+
 export default function Testimonial() {
-  return <div className="container max-w-6xl grid md:grid-cols-4 grid-cols-2 mx-auto h-fit border-2 rounded-tl-3xl rounded-br-3xl my-4 overflow-hidden">
-    <video className="border border-black" controls src="./testimonial/Testimonial1.mp4"></video>
-    <video className="border border-black" controls src="./testimonial/Testimonial2.mp4"></video>
-    <video className="border border-black" controls src="./testimonial/Testimonial3.mp4"></video>
-    <video className="border border-black" controls src="./testimonial/Testimonial4.mp4"></video>
-    <video className="border border-black" controls src="./testimonial/Testimonial5.mp4"></video>
-    <video className="border border-black" controls src="./testimonial/Testimonial6.mp4"></video>
-    <video className="border border-black" controls src="./testimonial/Testimonial7.mp4"></video>
-    <video className="border border-black" controls src="./testimonial/Testimonial8.mp4"></video>
-    <video className="border border-black" controls src="./testimonial/Testimonial9.mp4"></video>
-  </div> ;
+  // Ideally, move these paths to your data file, but hardcoded here for illustration
+  const videos = [
+    "./testimonial/Testimonial1.mp4", "./testimonial/Testimonial2.mp4",
+    "./testimonial/Testimonial3.mp4", "./testimonial/Testimonial4.mp4",
+    "./testimonial/Testimonial5.mp4", "./testimonial/Testimonial6.mp4",
+    "./testimonial/Testimonial7.mp4", "./testimonial/Testimonial8.mp4",
+    "./testimonial/Testimonial9.mp4"
+  ];
+
+  return (
+    <SectionWrapper 
+      title="Testimonials & Feedback" 
+      subtitle="Hear directly from our community about their journey to wellness and peace."
+      className="bg-slate-50"
+    >
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mt-8">
+        {videos.map((src, index) => (
+          <div 
+            key={index} 
+            className="relative rounded-2xl overflow-hidden bg-slate-200 shadow-sm border border-slate-200 group"
+          >
+            <video 
+              className="w-full h-full object-cover aspect-[3/4]" 
+              controls 
+              preload="metadata"
+              src={src}
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        ))}
+      </div>
+    </SectionWrapper>
+  );
 }

@@ -1,4 +1,4 @@
-import CTA from "../components/CTA";
+import CTA from "../components/common/CTA";
 import AboutMemberCard from "../components/common/AboutMemberCard";
 import HeadingPage from "../components/common/HeadingPage";
 
