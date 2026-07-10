@@ -200,7 +200,7 @@ const Modal = ({ selectedEvent, closeModal }) => {
                   </div>
                 </div>
                 <button
-                  onClick={() => window.open(selectedEvent.registrationLink, "_blank")}
+                  onClick={() => { if (selectedEvent.registrationLink) window.open(selectedEvent.registrationLink, "_blank"); else alert("No registration link found") }}
                   className="w-full py-3.5 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-sm transition-all duration-300 shadow-lg shadow-slate-900/20 flex items-center justify-center gap-2 group"
                 >
                   <span>Register for this Event</span>
@@ -209,7 +209,7 @@ const Modal = ({ selectedEvent, closeModal }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div >
       )}</>
   )
 }
