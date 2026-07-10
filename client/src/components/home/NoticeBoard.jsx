@@ -15,7 +15,6 @@ export default function NoticeBoard() {
       download: true,
       header: true,
       complete: (results) => {
-        console.log(results.data);
         setNotice((prev) => ({ ...prev, news: results.data }));
       }
     });
@@ -23,7 +22,6 @@ export default function NoticeBoard() {
       download: true,
       header: true,
       complete: (results) => {
-        console.log(results.data);
         setNotice((prev) => ({ ...prev, events: results.data }));
       }
     });
@@ -180,8 +178,7 @@ const Modal = ({ selectedEvent, closeModal }) => {
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
                     Event Description
                   </h4>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-8">
-                    {selectedEvent.description}
+                  <p dangerouslySetInnerHTML={{ __html: selectedEvent.description || "" }} className="text-sm text-slate-600 leading-relaxed mb-8">
                   </p>
 
                   <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-4">
