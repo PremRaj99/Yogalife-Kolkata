@@ -178,7 +178,7 @@ const Modal = ({ selectedEvent, closeModal }) => {
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
                     Event Description
                   </h4>
-                  <p dangerouslySetInnerHTML={{ __html: selectedEvent.description || "" }} className="text-sm text-slate-600 leading-relaxed mb-8">
+                  <p dangerouslySetInnerHTML={{ __html: selectedEvent.description || "" }} className="text-sm unset text-slate-600 leading-relaxed mb-8">
                   </p>
 
                   <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-4">
