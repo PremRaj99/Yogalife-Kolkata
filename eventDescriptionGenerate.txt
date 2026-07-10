@@ -1,0 +1,19 @@
+Convert the following content into a concise, mobile-friendly HTML description suitable for displaying inside a small modal/card (max-width: 28rem / max-w-md).
+
+Requirements:
+- Do NOT use titles (no <h1>, <h2>, <h3>, etc.).
+- Use only paragraphs (<p>), unordered lists (<ul><li>), and a wrapping <div>.
+- Add Tailwind CSS classes for clean spacing and readability.
+- Keep the content between 200–300 words.
+- Write in a promotional but professional tone.
+- Start with a short introductory paragraph explaining what the program/event is.
+- Follow with a bullet list highlighting the key features or learnings.
+- End with a short paragraph summarizing the benefits, certification (if applicable), career opportunities (if applicable), and a concise call-to-action.
+- Do not repeat information.
+- Make the content easy to scan on mobile.
+- Use semantic HTML only (no inline styles).
+- Use classes like: space-y-4, text-sm, leading-6, text-gray-700, list-disc, list-inside, font-medium, text-green-700.
+- Return ONLY the HTML without markdown or explanations.
+
+Content:
+{{PASTE YOUR CONTENT HERE}}
