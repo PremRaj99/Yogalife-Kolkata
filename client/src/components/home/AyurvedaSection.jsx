@@ -1,18 +1,46 @@
 import SectionWrapper from "../layout/SectionWrapper";
 import { ayurvedaTherapies } from "../../../data/homeData";
+import { motion } from "framer-motion";
 
 export default function AyurvedaSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" } 
+    },
+  };
+
   return (
     <SectionWrapper 
       title="Ayurveda & Holistic Wellness" 
       subtitle="Natural healing for body, mind, and spirit. Detoxify, rejuvenate, and heal without relying on synthetic drugs or invasive procedures."
       className="bg-slate-50"
     >
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8"
+      >
         {ayurvedaTherapies.map((item, index) => (
-          <div 
+          <motion.div 
             key={index} 
-            className="flex flex-col items-center gap-4 group"
+            variants={itemVariants}
+            whileHover={{ y: -4 }}
+            className="flex flex-col items-center gap-4 group cursor-pointer"
           >
             <div className="relative w-full aspect-square overflow-hidden rounded-2xl shadow-sm border border-slate-200">
               <img
@@ -27,9 +55,9 @@ export default function AyurvedaSection() {
                 {item.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 }

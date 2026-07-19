@@ -1,19 +1,47 @@
 import SectionWrapper from "../layout/SectionWrapper";
 import { retreats } from "../../../data/homeData";
 import { MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function RetreatsSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: [0.215, 0.61, 0.355, 1] } 
+    },
+  };
+
   return (
     <SectionWrapper 
       title="Yoga & Wellness Retreats" 
       subtitle="Escape the noise. Join our domestic and international retreats to heal, recharge, and reconnect in the world's most serene locations."
       className="bg-white"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
         {retreats.map((retreat, index) => (
-          <div 
+          <motion.div 
             key={index} 
-            className="flex flex-col bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+            variants={cardVariants}
+            whileHover={{ y: -6, transition: { duration: 0.25 } }}
+            className="flex flex-col bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer"
           >
             {/* Image Banner */}
             <div className="relative h-56 overflow-hidden bg-slate-100">
@@ -40,9 +68,9 @@ export default function RetreatsSection() {
                 <span>Explore Destination</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 }

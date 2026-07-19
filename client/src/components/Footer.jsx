@@ -1,16 +1,13 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-
 import { Footer } from "flowbite-react";
 import {
-  BsDribbble,
   BsFacebook,
-  BsGithub,
   BsInstagram,
   BsTwitter,
   BsWhatsapp,
 } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 export default function FooterComponents() {
   return (
@@ -81,11 +78,16 @@ export default function FooterComponents() {
       </Footer>
 
       {/* Floating WhatsApp Button */}
-      <a
+      <motion.a
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        whileHover={{ scale: 1.15 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}
         href="https://wa.me/919546074242?text=Hello!%20I%27d%20like%20to%20inquire%20about%20Yogalife%20Kolkata%27s%20yoga%20classes%20and%20programs."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#AF2226] text-white rounded-full shadow-[0_4px_14px_0_rgba(175,34,38,0.4)] hover:shadow-[0_6px_20px_0_rgba(175,34,38,0.6)] hover:bg-[#901c1f] hover:scale-110 active:scale-95 transition-all duration-300 group"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#AF2226] text-white rounded-full shadow-[0_4px_14px_0_rgba(175,34,38,0.4)] hover:shadow-[0_6px_20px_0_rgba(175,34,38,0.6)] hover:bg-[#901c1f] transition-colors group"
         aria-label="Contact us on WhatsApp"
       >
         <BsWhatsapp className="w-7 h-7" />
@@ -94,7 +96,7 @@ export default function FooterComponents() {
         <span className="absolute right-16 scale-0 transition-all duration-200 rounded-lg bg-slate-900 px-3 py-1.5 text-xs text-white group-hover:scale-100 whitespace-nowrap font-medium pointer-events-none shadow-md">
           Chat with us!
         </span>
-      </a>
+      </motion.a>
     </>
   );
 }

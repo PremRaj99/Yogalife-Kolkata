@@ -1,6 +1,7 @@
 import CTA from "../components/common/CTA";
 import AboutMemberCard from "../components/common/AboutMemberCard";
 import HeadingPage from "../components/common/HeadingPage";
+import { motion } from "framer-motion";
 
 export default function About() {
   const members = [
@@ -31,7 +32,7 @@ Secretary of Yogalife Kolkata.`,
     {
       image: "./memberImage/Arkaprava.jpg",
       title: "Ayurvedacharya",
-      name: "Vaidya (Dr).Arkaprava Jana",
+      name: "Vaidya (Dr).Arkaprava Jana",
       shortIntro: `BAMS (WBUHS), Director of Ayuprava Holistic Healthcare Clinic  
 Official Representative of Yogalife Kolkata.`,
     },
@@ -94,36 +95,80 @@ Convener, Publicity and Events at Yogalife Kolkata.`,
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
-    <div className="w-ful overflow-hidden">
+    <div className="w-full overflow-hidden bg-slate-50">
       <HeadingPage>About Us</HeadingPage>
-      <div className="container max-w-6xl mx-auto mt-4 px-4">
-        <h1 className="font-bold text-2xl">About Us</h1>
-      </div>
-      <div className="container grid md:grid-cols-4 grid-cols-2 max-w-6xl mx-auto gap-2 p-4">
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="container max-w-6xl mx-auto mt-8 px-4"
+      >
+        <h2 className="font-bold text-2xl text-slate-900 border-b border-slate-200 pb-3">Leadership & Advisory</h2>
+      </motion.div>
+      
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="container grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 max-w-6xl mx-auto gap-6 p-4 my-4"
+      >
         {members.map((memeber, index) => (
           <AboutMemberCard
             key={index}
+            variants={cardVariants}
             title={memeber.title}
             name={memeber.name}
             image={memeber.image}
             shortIntro={memeber.shortIntro}
           />
         ))}
-      </div>
+      </motion.div>
+      
       {/* Our Expert Teacher */}
-      <h1 className="container max-w-6xl mx-auto px-4 mt-4 font-bold text-2xl">
-        Our Expert Teacher
-      </h1>
-      <div className="container grid md:grid-cols-4 grid-cols-2 max-w-6xl mx-auto gap-2 mb-4 p-4">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="container max-w-6xl mx-auto px-4 mt-8"
+      >
+        <h2 className="font-bold text-2xl text-slate-900 border-b border-slate-200 pb-3">
+          Our Expert Teachers
+        </h2>
+      </motion.div>
+
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        className="container grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 max-w-6xl mx-auto gap-4 mb-12 p-4"
+      >
         {Teachers.map((memeber, index) => (
           <AboutMemberCard
             key={index}
+            variants={cardVariants}
             name={memeber.name}
             image={memeber.image}
           />
         ))}
-      </div>
+      </motion.div>
+
       <CTA />
     </div>
   );

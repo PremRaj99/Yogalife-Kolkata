@@ -1,16 +1,47 @@
 import SectionWrapper from "../layout/SectionWrapper";
 import { yogaPrograms } from "../../../data/homeData";
+import { motion } from "framer-motion";
 
 export default function ProgramsSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" } 
+    },
+  };
+
   return (
     <SectionWrapper 
       title="Yoga Programs & Workshops" 
       subtitle="Transform your body and mind with our specialized yoga programs designed for all levels of experience."
       className="bg-slate-50"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+      >
         {yogaPrograms.map((item, index) => (
-          <div key={index} className="flex flex-col group cursor-pointer">
+          <motion.div 
+            key={index} 
+            variants={cardVariants}
+            whileHover={{ y: -5 }}
+            className="flex flex-col group cursor-pointer"
+          >
             <div className="relative w-full aspect-square overflow-hidden rounded-2xl mb-5 bg-slate-200 border border-slate-200 shadow-sm">
               <img
                 src={item.image || "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"} 
@@ -26,9 +57,9 @@ export default function ProgramsSection() {
                 {item.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 }

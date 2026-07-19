@@ -1,6 +1,7 @@
 import React from "react";
 import CTA from "../components/common/CTA";
 import HeadingPage from "../components/common/HeadingPage";
+import { motion } from "framer-motion";
 
 const videos = [
   "./vlog/Vlog1.mp4",
@@ -15,16 +16,37 @@ const videos = [
 ];
 
 export default function Blogs() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
-    <div className="w-full">
+    <div className="w-full bg-slate-50">
       <HeadingPage>Blog</HeadingPage>
-      <div className="container max-w-6xl mx-auto p-4 py-6 mb-10 bg-white bg-opacity-80 rounded">
-        <h1 className="text-2xl font-bold mb-6">Our Vlog</h1>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mt-8">
+      <div className="container max-w-6xl mx-auto p-4 py-8 mb-10">
+        <h2 className="text-2xl font-bold mb-6 text-slate-900 border-b border-slate-200 pb-3">Our Vlog Collection</h2>
+        
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-8"
+        >
           {videos.map((video, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative rounded-2xl overflow-hidden bg-slate-200 shadow-sm border border-slate-200 group"
+              variants={cardVariants}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="relative rounded-2xl overflow-hidden bg-slate-900 shadow-md border border-slate-200 group"
             >
               <video
                 className="w-full h-full object-cover aspect-[3/4]"
@@ -34,9 +56,9 @@ export default function Blogs() {
               >
                 Your browser does not support the video tag.
               </video>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
       <CTA />
     </div>

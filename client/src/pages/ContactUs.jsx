@@ -12,6 +12,7 @@ import { HiMail, HiUser } from "react-icons/hi";
 import { IoMdCall } from "react-icons/io";
 import HeadingPage from "../components/common/HeadingPage";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 export default function ContactUs() {
   const [formdata, setFormData] = useState({
@@ -78,15 +79,25 @@ export default function ContactUs() {
     }
   };
 
+  const socialLinks = [
+    { icon: BsFacebook, color: "text-blue-700 hover:text-blue-600", url: "https://www.facebook.com/share/19Wox1VPcU/?mibextid=wwXIfr" },
+    { icon: BsInstagram, color: "text-pink-600 hover:text-pink-700", url: "https://www.instagram.com/yogalifekolkata?utm_source=qr" },
+    { icon: BsTwitterX, color: "text-slate-700 hover:text-slate-900", url: "https://x.com/Shambhu40287904?t=fD_gnGm5cuv5cH4YyLgqxA&s=08" },
+    { icon: BsYoutube, color: "text-red-700 hover:text-red-600", url: "/" },
+  ];
+
   return (
-    <div className="w-full">
+    <div className="w-full bg-slate-50 min-h-screen">
       <HeadingPage>Contact Us</HeadingPage>
       <div className="my-10 flex items-center justify-center">
-        <form
-          className="flex-1 flex max-w-md flex-col gap-4"
+        <motion.form
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex-1 flex max-w-md flex-col gap-4 bg-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-200"
           onSubmit={handleSubmit}
         >
-          <div className="px-4">
+          <div className="px-1">
             <div className="mb-2 block">
               <Label htmlFor="name" value="Your name" />
             </div>
@@ -102,7 +113,7 @@ export default function ContactUs() {
               required
             />
           </div>
-          <div className="px-4">
+          <div className="px-1">
             <div className="mb-2 block">
               <Label htmlFor="email4" value="Your email" />
             </div>
@@ -118,7 +129,7 @@ export default function ContactUs() {
               required
             />
           </div>
-          <div className="px-4">
+          <div className="px-1">
             <div className="mb-2 block">
               <Label htmlFor="phn" value="Your Number" />
             </div>
@@ -136,7 +147,7 @@ export default function ContactUs() {
               required
             />
           </div>
-          <div className="max-w-md px-4">
+          <div className="max-w-md px-1">
             <div className="mb-2 block">
               <Label htmlFor="comment" value="Your message" />
             </div>
@@ -151,20 +162,22 @@ export default function ContactUs() {
               }
             />
           </div>
-          <Button gradientDuoTone="purpleToPink" className="mx-4" type="submit">
-            {loading ? (
-              <>
-                <Spinner size="sm" />
-                <span className="pl-3">Loading...</span>
-              </>
-            ) : (
-              "Submit"
-            )}
-          </Button>
+          <motion.div whileTap={{ scale: 0.98 }}>
+            <Button gradientDuoTone="purpleToPink" className="w-full mt-2 font-bold" type="submit">
+              {loading ? (
+                <>
+                  <Spinner size="sm" />
+                  <span className="pl-3">Sending...</span>
+                </>
+              ) : (
+                "Submit"
+              )}
+            </Button>
+          </motion.div>
           {error && (
             <Alert
               color="failure"
-              className="my-5 flex items-center justify-center"
+              className="my-3 flex items-center justify-center"
               rounded
             >
               {error}
@@ -173,34 +186,45 @@ export default function ContactUs() {
           {success && (
             <Alert
               color="success"
-              className="my-5 flex items-center justify-center"
+              className="my-3 flex items-center justify-center"
               rounded
             >
               {success}
             </Alert>
           )}
-        </form>
+        </motion.form>
       </div>
-      <div className="container max-w-6xl mx-auto gap-4 flex items-center">
-        <div className="flex-1 border"></div>
-        <p className="text-gray-500">OR</p>
-        <div className="flex-1 border"> </div>
+
+      <div className="container max-w-md mx-auto gap-4 flex items-center px-4">
+        <div className="flex-1 border-t border-slate-300"></div>
+        <p className="text-slate-500 font-bold text-sm">OR CONNECT WITH US</p>
+        <div className="flex-1 border-t border-slate-300"> </div>
       </div>
-      <div className="flex gap-6 items-center justify-center my-10 text-2xl text-gray-800">
-        <a href="https://www.facebook.com/share/19Wox1VPcU/?mibextid=wwXIfr">
-          <BsFacebook className="text-blue-700 hover:text-blue-600 transition-all duration-75" />
-        </a>
-        <a href="https://www.instagram.com/yogalifekolkata?utm_source=qr">
-          <BsInstagram className="text-pink-600 hover:text-pink-700 transition-all duration-75" />
-        </a>
-        <a href="https://x.com/Shambhu40287904?t=fD_gnGm5cuv5cH4YyLgqxA&s=08 ">
-          <BsTwitterX className="text-gray-700 hover:text-gray-900 transition-all duration-75" />
-        </a>
-        <a href="/">
-          <BsYoutube className="text-red-700 hover:text-red-600 transition-all duration-75" />
-        </a>
-      </div>
-      {/* < CTA /> */}
+
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="flex gap-6 items-center justify-center my-10 text-3xl"
+      >
+        {socialLinks.map((item, idx) => {
+          const IconComp = item.icon;
+          return (
+            <motion.a
+              key={idx}
+              whileHover={{ scale: 1.25, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={item.color}
+            >
+              <IconComp />
+            </motion.a>
+          );
+        })}
+      </motion.div>
     </div>
   );
 }

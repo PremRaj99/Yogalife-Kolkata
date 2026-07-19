@@ -1,15 +1,22 @@
 import { Navbar } from "flowbite-react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-// import {Link} from
+import { motion } from "framer-motion";
 
 export default function Header() {
   const path = useLocation().pathname;
   return (
-    <div className="border-b-2 bg-slate-100 z-50 sticky top-0">
+    <motion.div 
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="border-b-2 bg-slate-100 z-50 sticky top-0"
+    >
       <Navbar fluid rounded className=" container max-w-6xl mx-auto bg-slate-100">
         <Navbar.Brand as={Link} to="/">
-          <img
+          <motion.img
+            whileHover={{ rotate: [0, -5, 5, 0], scale: 1.05 }}
+            transition={{ duration: 0.3 }}
             src="/kol-logo.png"
             className="mr-3 h-12"
             alt="Yogalife Kolkata Logo"
@@ -44,6 +51,6 @@ export default function Header() {
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
-    </div>
+    </motion.div>
   );
 }

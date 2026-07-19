@@ -2,6 +2,7 @@ import { ArrowRight, Calendar, Clock, MapPin, Megaphone, X } from "lucide-react"
 import { useEffect, useState } from "react";
 import SectionWrapper from "../layout/SectionWrapper";
 import Papa from "papaparse";
+import { motion, AnimatePresence } from "framer-motion";
 
 const newsheetCsvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJFOdlMKF_Vwx-F7UN1T7nGjbfkMw8FeL-97_gsuGcequQBBGpLecurFamRkIb7fYxjccQUvFCoECt/pub?gid=304718466&single=true&output=csv";
 const eventsheetCsvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJFOdlMKF_Vwx-F7UN1T7nGjbfkMw8FeL-97_gsuGcequQBBGpLecurFamRkIb7fYxjccQUvFCoECt/pub?gid=153098187&single=true&output=csv";
@@ -31,6 +32,19 @@ export default function NoticeBoard() {
     setSelectedEvent(null);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
     <SectionWrapper
       title="Notice Board & Events Hub"
@@ -40,14 +54,27 @@ export default function NoticeBoard() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
 
         {/* Latest Announcements - High Contrast Side Panel */}
-        <div className="lg:col-span-4 flex flex-col bg-slate-900 rounded-3xl p-6 text-white shadow-xl">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="lg:col-span-4 flex flex-col bg-slate-900 rounded-3xl p-6 text-white shadow-xl"
+        >
           <div className="flex items-center gap-3 mb-6 border-b border-slate-700 pb-4">
             <Megaphone className="w-5 h-5 text-slate-300" />
             <h3 className="text-lg font-bold tracking-tight">Announcements</h3>
           </div>
           <div className="flex-grow overflow-y-auto [scrollbar-width:none] max-h-[500px] pr-2 space-y-4 scrollbar-thin scrollbar-thumb-slate-700">
-            {notice.news.map((item) => (
-              <div key={item.id} className="p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:bg-slate-800 transition-colors">
+            {notice.news.map((item, index) => (
+              <motion.div 
+                key={item.id || index}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:bg-slate-800 transition-colors"
+              >
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-[10px] uppercase font-bold px-2 py-1 bg-slate-700 rounded text-slate-300">
                     {item.tag}
@@ -56,22 +83,36 @@ export default function NoticeBoard() {
                 </div>
                 <h4 className="text-sm font-bold mb-2">{item.title}</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">{item.content}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Upcoming Events - Clean Minimalist Grid */}
-        <div className="lg:col-span-8 flex flex-col">
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="lg:col-span-8 flex flex-col"
+        >
           <div className="flex items-center gap-3 mb-6">
             <Calendar className="w-5 h-5 text-slate-900" />
             <h3 className="text-xl font-bold text-slate-900 tracking-tight">Upcoming Workshops</h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {notice.events.map((event) => (
-              <div
-                key={event.id}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
+            {notice.events.map((event, index) => (
+              <motion.div
+                key={event.id || index}
+                variants={cardVariants}
+                whileHover={{ y: -4 }}
                 className="group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <div className="relative h-48 overflow-hidden bg-slate-100">
@@ -101,18 +142,19 @@ export default function NoticeBoard() {
                       </div>
                     </div>
                   </div>
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => setSelectedEvent(event)}
                     className="w-full py-3 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-semibold text-sm transition-colors flex items-center justify-center gap-2"
                   >
                     <span>Register Now</span>
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </motion.button>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <Modal selectedEvent={selectedEvent} closeModal={closeModal} />
@@ -122,11 +164,22 @@ export default function NoticeBoard() {
 
 const Modal = ({ selectedEvent, closeModal }) => {
   return (
-    <>
-      {/* Registration Modal Overlay (Glassmorphism applied here for focus) */}
+    <AnimatePresence>
       {selectedEvent && (
-        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-all duration-300">
-          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto flex flex-col md:flex-row relative animate-fade-in">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto flex flex-col md:flex-row relative"
+          >
 
             {/* Close Button */}
             <button
@@ -199,17 +252,19 @@ const Modal = ({ selectedEvent, closeModal }) => {
                     </div>
                   </div>
                 </div>
-                <button
+                <motion.button
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => { if (selectedEvent.registrationLink) window.open(selectedEvent.registrationLink, "_blank"); else alert("No registration link found") }}
                   className="w-full py-3.5 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-sm transition-all duration-300 shadow-lg shadow-slate-900/20 flex items-center justify-center gap-2 group"
                 >
                   <span>Register for this Event</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </motion.button>
               </div>
             </div>
-          </div>
-        </div >
-      )}</>
-  )
-}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
