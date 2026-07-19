@@ -1,8 +1,18 @@
-# React + Vite
+# 🧘‍♀️ Yogalife Kolkata - Client Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This directory contains the **Vite + React 18** frontend for Yogalife Kolkata.
 
-Currently, two official plugins are available:
+For the full project overview, features, backend setup, and overall documentation, please refer to the main [Root README.md](../README.md).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Quick Start (Frontend)
+
+```bash
+# Install dependencies
+npm install
+
+# Run Vite dev server
+npm run dev
+
+# Build for production
+npm run build
+```
