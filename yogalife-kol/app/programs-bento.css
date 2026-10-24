@@ -1,0 +1,47 @@
+.yoga-bento-section { background: var(--color-white); }
+.bento-section-heading { max-width: 660px; margin: 0 auto 48px; text-align: center; }
+.bento-section-heading .eyebrow { justify-content: center; }
+.bento-section-heading h2 { margin-bottom: 24px; }
+.bento-section-heading > p { max-width: 540px; margin: 0 auto; }
+.yoga-bento-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.yoga-bento-card { position: relative; display: flex; flex-direction: column; align-items: stretch; min-width: 0; min-height: 330px; border: 0; border-radius: var(--radius-feature-card); padding: 24px; text-align: left; color: var(--color-ink); box-shadow: var(--shadow-outer), inset 0 1px 0 #ffffffb3; overflow: hidden; }
+.bento-tone-cream { background: var(--color-cream); }
+.bento-tone-sage { background: #f0f3ed; }
+.bento-tone-white { background: #f8f9f6; }
+.bento-card-top { display: flex; justify-content: space-between; gap: 16px; align-items: center; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-muted); position: relative; z-index: 1; }
+.bento-card-top > .icon { transition: transform .22s; }
+.yoga-bento-card:hover .bento-card-top > .icon { transform: translate(2px,-2px); }
+.bento-art { height: 160px; display: grid; place-items: center; margin-block: 8px 20px; position: relative; pointer-events: none; }
+.bento-art-image { object-fit: contain; }
+.bento-card-copy { margin-top: auto; position: relative; z-index: 1; }
+.bento-card-copy h3 { font-size: 24px; line-height: 1.25; margin-bottom: 12px; }
+.bento-card-copy p { font-size: 16px; line-height: 1.6; color: var(--color-muted); margin: 0; max-width: 330px; }
+.bento-featured { grid-column: span 2; }
+.bento-featured .bento-art { position: absolute; right: 8px; bottom: 28px; width: 50%; height: 235px; margin: 0; }
+.bento-featured .bento-card-copy { width: 49%; padding-bottom: 12px; }
+.bento-featured .bento-card-copy h3 { font-size: 32px; }
+.bento-featured .bento-card-copy p { max-width: 270px; }
+.bento-section-footer { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px 24px; margin-top: 32px; font-size: 14px; }
+.bento-section-footer p { margin: 0; color: var(--color-muted); }
+.bento-program-details > .tag { margin-bottom: 24px; }
+.bento-training-options { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+.bento-training-options button { min-height: 44px; padding: 8px 16px; border: 0; border-radius: var(--radius-tag); color: var(--color-forest); background: var(--color-cream); }
+.bento-training-options button[aria-pressed="true"] { background: var(--color-forest); color: white; }
+@media (max-width: 1023px) {
+  .yoga-bento-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .bento-featured { grid-column: span 1; }
+  .bento-featured .bento-art { position: relative; right: auto; bottom: auto; width: 100%; height: 160px; margin-block: 8px 20px; }
+  .bento-featured .bento-card-copy { width: 100%; padding-bottom: 0; }
+  .bento-featured .bento-card-copy h3 { font-size: 24px; }
+  .bento-featured .bento-card-copy p { max-width: 330px; }
+}
+@media (max-width: 639px) {
+  .bento-section-heading { margin-bottom: 32px; text-align: left; }
+  .bento-section-heading .eyebrow { justify-content: flex-start; font-size: 10px; letter-spacing: .12em; }
+  .bento-section-heading h2 { margin-bottom: 20px; }
+  .yoga-bento-grid { grid-template-columns: 1fr; gap: 16px; }
+  .yoga-bento-card { min-height: 310px; padding: 24px; }
+  .bento-section-footer { justify-content: flex-start; align-items: flex-start; flex-direction: column; gap: 8px; }
+  .bento-art { height: 148px; }
+  .bento-featured .bento-art { height: 148px; }
+}

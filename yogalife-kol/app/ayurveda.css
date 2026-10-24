@@ -1,0 +1,18 @@
+.ayurveda-section { background: var(--color-white); }
+.ayurveda-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 16px; margin: 0; padding: 0; list-style: none; }
+.ayurveda-image { position: relative; aspect-ratio: 1; margin-bottom: 16px; border-radius: var(--radius-image); overflow: hidden; box-shadow: var(--shadow-outer); }
+.ayurveda-image img { object-fit: cover; transition: transform .4s; }
+.ayurveda-card:hover .ayurveda-image img { transform: scale(1.04); }
+.ayurveda-card h3 { font-size: 18px; line-height: 1.3; margin-bottom: 8px; }
+.ayurveda-card p { font-size: 14px; line-height: 1.6; color: var(--color-muted); margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ayurveda-card:hover .ayurveda-image img { transform: none; }
+}
+@media (max-width: 1023px) {
+  .ayurveda-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 639px) {
+  .ayurveda-section .section-intro { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 32px; }
+  .ayurveda-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+}

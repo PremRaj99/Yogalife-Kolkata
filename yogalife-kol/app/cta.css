@@ -1,0 +1,33 @@
+.cta-section { background: var(--color-white); padding-bottom: 0; overflow: hidden; }
+.cta-heading { max-width: 620px; margin: 0 auto; text-align: center; }
+.cta-heading .eyebrow { justify-content: center; }
+.cta-heading .eyebrow:before { display: none; }
+.cta-heading h2 { margin-bottom: 20px; }
+.cta-heading p { max-width: 520px; margin: 0 auto 32px; }
+
+/* Three panels anchored to the bottom; the centre one is taller and its figure overflows the top */
+.cta-panels { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 48px; align-items: end; margin-top: 140px; }
+.cta-panel { position: relative; border-radius: var(--radius-feature-card) var(--radius-feature-card) 0 0; }
+.cta-panel-side { height: 300px; overflow: hidden; background: var(--color-sage); }
+.cta-panel-side img { object-fit: cover; }
+.cta-panel-center { height: 340px; background: linear-gradient(180deg, var(--color-sage) 0%, #cfdcc9 55%, var(--color-forest) 140%); }
+.cta-figure { position: absolute; left: 50%; bottom: 0; width: min(100%, 420px); height: 460px; transform: translateX(-50%); }
+.cta-figure img { object-fit: contain; object-position: bottom; }
+
+.cta-chips { position: absolute; left: 50%; bottom: 40px; display: flex; align-items: center; gap: 6px; transform: translateX(-50%); }
+.cta-chip { display: inline-flex; align-items: center; padding: 8px 18px; border-radius: var(--radius-button); background: var(--color-white); color: var(--color-forest); font-size: 24px; font-weight: 500; box-shadow: var(--shadow-raised); white-space: nowrap; }
+.cta-chip-icon { padding: 10px; border-radius: 50%; background: var(--color-cream); }
+.cta-chip-accent { font-style: italic; background: var(--color-cream); }
+
+@media (max-width: 1023px) {
+  .cta-panels { grid-template-columns: 1fr; margin-top: 120px; }
+  .cta-panel-side { display: none; }
+  .cta-panel-center { max-width: 520px; width: 100%; margin-inline: auto; }
+}
+@media (max-width: 639px) {
+  .cta-panels { margin-top: 96px; }
+  .cta-panel-center { height: 280px; }
+  .cta-figure { height: 360px; }
+  .cta-chip { font-size: 18px; padding: 6px 14px; }
+  .cta-chip-icon { padding: 8px; }
+}

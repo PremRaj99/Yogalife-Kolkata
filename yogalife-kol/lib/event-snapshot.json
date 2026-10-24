@@ -1,0 +1,44 @@
+{
+  "savedAt": "2026-10-24T07:21:10.1027883Z",
+  "news": [
+    {
+      "id": "news-1",
+      "title": "Varanasi Yoga Retreat – November 2026        ",
+      "date": "November 2026",
+      "content": "Varanasi, Uttar Pradesh\tWe're excited to announce our upcoming Yoga Retreat in the spiritual city of Varanasi this November. Immerse yourself in yoga, meditation, Ganga Aarti, mindful living, and the timeless spiritual essence of one of India's holiest cities. More details and registrations will be announced soon.",
+      "tag": "Upcoming"
+    }
+  ],
+  "events": [
+    {
+      "id": "event-3",
+      "title": "200-Hour Yoga Teacher Training Course (RYT 200)",
+      "date": "Upcoming",
+      "time": "To Be Announced",
+      "location": "Yogalife Kolkata",
+      "description": "<div class=\"space-y-4 text-sm leading-6 text-gray-700\">\r\n\r\n  <p>\r\n    Turn your passion for yoga into a rewarding career with our internationally\r\n    recognized <strong>200-Hour Yoga Teacher Training Course (RYT 200)</strong>.\r\n    Whether you're a beginner, an experienced practitioner, or looking to build\r\n    a career in health and wellness, this course offers the perfect foundation\r\n    through expert guidance and practical training.\r\n  </p>\r\n\r\n  <p><strong>During the course you'll learn:</strong></p>\r\n\r\n  <ul class=\"list-disc list-inside space-y-1\">\r\n    <li>Hatha & Ashtanga Yoga</li>\r\n    <li>Pranayama, Meditation & Mindfulness</li>\r\n    <li>Yoga Philosophy, Anatomy & Alignment</li>\r\n    <li>Teaching Methodology & Class Sequencing</li>\r\n    <li>Ayurveda, Natural Healing & Yoga Therapy Basics</li>\r\n  </ul>\r\n\r\n  <p>\r\n    The program includes practical teaching sessions, personalized guidance,\r\n    internationally recognized certification (RYT 200), comprehensive study\r\n    materials, career support, and lifetime alumni assistance.\r\n  </p>\r\n\r\n  <p>\r\n    Upon successful completion, you'll be prepared to work as a\r\n    <strong>Certified Yoga Teacher, Wellness Coach, Corporate Trainer, Online Instructor,</strong>\r\n    or lead yoga retreats and workshops.\r\n  </p>\r\n\r\n  <p class=\"font-medium text-green-700\">\r\n    📍 Offline at Yogalife Kolkata &nbsp;•&nbsp; ⏳ 200 Hours &nbsp;•&nbsp;\r\n    🌿 Limited seats available.\r\n  </p>\r\n\r\n</div>",
+      "image": "https://busan-public.s3.ap-south-1.amazonaws.com/4af8b09371819d5c775dc9e46dab4189-YOGA_TEACHER_TRAINING_COURSE_200HRS.jpeg",
+      "registrationLink": ""
+    },
+    {
+      "id": "event-1",
+      "title": "Kamakhya & Shillong Spiritual Yoga Retreat",
+      "date": "July 17, 2026",
+      "time": "9:00 AM (July 17) - 6:00 PM (July 20)",
+      "location": "Main Hall, Yogalife Kolkata",
+      "description": "Kamakhya Temple, Guwahati & Shillong, Meghalaya\tThere are journeys that take you to beautiful places, and then there are journeys that bring you home—to yourself. Join us for a soulful retreat through the sacred embrace of Kamakhya and the tranquil hills of Shillong, where spirituality, nature, and mindful living come together in perfect harmony. Experience Yoga & Meditation, Nature Immersion, Breathwork & Mindfulness, Healing Circles & Self-Reflection, Sacred Temple Visits, and Meaningful Connections. Whether you're seeking peace, clarity, renewal, or simply a pause from everyday life, this retreat offers the perfect space to rest, reflect, and rediscover yourself.",
+      "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+      "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLScP_72R4b0mNUXo5e032G5w8Pvx413F0nJbQ6_d_S-E6d4DWA/viewform"
+    },
+    {
+      "id": "event-2",
+      "title": "International Day of Yoga 2026 Celebration",
+      "date": "June 21, 2026",
+      "time": "6:00 AM - 10:00 AM",
+      "location": "Yogalife Kolkata",
+      "description": "Main Event\tCelebrate the International Day of Yoga with a special morning of community yoga, guided meditation, pranayama, wellness talks, and mindful activities. Open to practitioners of all ages and experience levels. Join us as we come together to embrace health, harmony, and inner peace while honoring the global spirit of yoga.",
+      "image": "https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=800&q=80",
+      "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLScP_72R4b0mNUXo5e032G5w8Pvx413F0nJbQ6_d_S-E6d4DWA/viewform"
+    }
+  ]
+}

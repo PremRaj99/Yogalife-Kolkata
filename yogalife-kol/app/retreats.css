@@ -1,0 +1,29 @@
+.retreats-section { background: var(--color-cream); overflow: hidden; }
+
+/* One-line snap scroll; inline padding lines the first card up with .container */
+.retreats-track {
+  --retreats-inset: max(var(--container-padding), calc((100vw - var(--content-width)) / 2));
+  display: flex; gap: 16px; margin: 0; padding: 4px var(--retreats-inset) 16px; list-style: none;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: var(--retreats-inset);
+  scrollbar-width: none;
+}
+.retreats-track::-webkit-scrollbar { display: none; }
+.retreats-track:focus-visible { outline: 2px solid var(--color-forest); outline-offset: -2px; }
+
+.retreat-card { flex: 0 0 340px; scroll-snap-align: start; padding: 12px 12px 24px; border-radius: var(--radius-feature-card); background: var(--color-white); box-shadow: var(--shadow-outer); }
+.retreat-image { position: relative; aspect-ratio: 4 / 3; margin-bottom: 20px; border-radius: var(--radius-image); overflow: hidden; }
+.retreat-image img { object-fit: cover; transition: transform .4s; }
+.retreat-card:hover .retreat-image img { transform: scale(1.04); }
+.retreat-card .tag { margin-inline: 12px; margin-bottom: 12px; font-size: 12px; }
+.retreat-card h3 { font-size: 22px; line-height: 1.25; margin: 0 12px 8px; }
+.retreat-card p { font-size: 15px; line-height: 1.6; color: var(--color-muted); margin: 0 12px; }
+.retreats-footer { margin-top: 24px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .retreat-card:hover .retreat-image img { transform: none; }
+}
+@media (max-width: 639px) {
+  .retreats-section .section-intro { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 32px; }
+  .retreat-card { flex-basis: 80%; }
+}
