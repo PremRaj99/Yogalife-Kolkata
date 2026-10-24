@@ -9,7 +9,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSanitize from "rehype-sanitize";
 import { SiteFooter } from "@/components/site-footer";
 import { formatPostDate, getPost, postExcerpt } from "@/lib/blog";
-import { openGraphBase } from "@/lib/site";
+import { defaultShareImage, openGraphBase } from "@/lib/site";
 import "../../home.css";
 import "../../cta.css";
 import "../../footer.css";
@@ -35,6 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.publishedAt.toISOString(),
       modifiedTime: post.updatedAt?.toISOString(),
       authors: post.author ? [post.author] : undefined,
+      // Setting openGraph here drops the inherited image, so add it back.
+      images: [defaultShareImage],
     },
   };
 }

@@ -8,7 +8,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const logo = await readFile(join(process.cwd(), "public/logo-lotus.png"));
+  // Use the small logo: WhatsApp skips preview images larger than ~300KB,
+  // and the 1MB logo-lotus.png pushed the card over that limit.
+  const logo = await readFile(join(process.cwd(), "public/kol-logo.png"));
   const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
 
   return new ImageResponse(
