@@ -49,8 +49,7 @@ export function HomeHero() {
 
     if (
       reduceMotion ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      window.matchMedia("(max-width: 767px)").matches
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       finish();
       return;
@@ -190,11 +189,16 @@ export function HomeHero() {
       if (active) finish();
     });
     playback.fallback = window.setTimeout(finish, 5200);
-    window.addEventListener("resize", finish, { passive: true });
+    // Mobile browsers fire resize when the address bar collapses; only stop on width changes.
+    const startWidth = window.innerWidth;
+    const onResize = () => {
+      if (window.innerWidth !== startWidth) finish();
+    };
+    window.addEventListener("resize", onResize, { passive: true });
     return () => {
       active = false;
       finish();
-      window.removeEventListener("resize", finish);
+      window.removeEventListener("resize", onResize);
     };
   }, [animate, reduceMotion, scope]);
 

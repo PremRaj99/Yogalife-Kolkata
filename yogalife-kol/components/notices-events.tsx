@@ -12,6 +12,7 @@ import {
   PiMagnifyingGlassThin,
   PiMapPinThin,
   PiMegaphoneThin,
+  PiSortAscendingThin,
 } from "react-icons/pi";
 import { useNoticesEvents } from "@/lib/use-notices-events";
 import { compareTimelineEntries, isPastEntry } from "@/lib/event-feed";
@@ -240,6 +241,9 @@ export function NoticesEvents() {
               </label>
               <label className="updates-sort">
                 <span className="updates-sr-only">Sort updates</span>
+                <span className="updates-sort-icon" aria-hidden="true">
+                  <Icon icon={PiSortAscendingThin} size="sm" />
+                </span>
                 <select
                   value={sort}
                   onChange={(event) => {

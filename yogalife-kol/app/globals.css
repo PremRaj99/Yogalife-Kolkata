@@ -220,6 +220,29 @@ small,
   text-underline-offset: 3px;
   cursor: pointer;
 }
+/* See more / See less toggle under card grids */
+.show-more {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 32px;
+  text-align: center;
+}
+.show-more .secondary-button {
+  margin-inline: auto;
+}
+.show-more-icon {
+  display: inline-grid;
+  transition: transform 0.2s ease;
+}
+.show-more-icon.is-open {
+  transform: rotate(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .show-more-icon {
+    transition: none;
+  }
+}
 .icon {
   display: inline-block;
   flex-shrink: 0;

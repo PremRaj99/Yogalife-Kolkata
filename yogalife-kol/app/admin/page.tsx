@@ -17,6 +17,7 @@ import { FormDialog } from "./form-dialog";
 import { DateTimeFields } from "./date-time-fields";
 import { matchesRegistration } from "./registration-filter";
 import { EmailActions, SelectAll } from "./email-actions";
+import { Toolbar, type SortOption } from "./toolbar";
 import "./admin.css";
 
 export const metadata: Metadata = {
@@ -50,7 +51,6 @@ const todayIst = () =>
     day: "2-digit",
   }).format(new Date());
 
-type SortOption = { value: string; label: string };
 const timelineSorts: SortOption[] = [
   { value: "recent", label: "Recently added" },
   { value: "date-desc", label: "Date: latest first" },
@@ -65,43 +65,6 @@ const registrationSorts: SortOption[] = [
 ];
 const pickSort = (options: SortOption[], value?: string) =>
   options.some((option) => option.value === value) ? value! : options[0].value;
-
-// Plain GET form, so search and sort live in the URL and work without client JS.
-function Toolbar({
-  tab,
-  query,
-  sort,
-  options,
-  placeholder,
-}: {
-  tab: Tab;
-  query: string;
-  sort: string;
-  options: SortOption[];
-  placeholder: string;
-}) {
-  return (
-    <form className="admin-toolbar" action="/admin" role="search">
-      <input type="hidden" name="tab" value={tab} />
-      <label className="admin-search">
-        <span className="admin-sr-only">Search</span>
-        <input className="input" type="search" name="q" maxLength={100} placeholder={placeholder} defaultValue={query} />
-      </label>
-      <label className="admin-sort">
-        <span className="admin-sr-only">Sort by</span>
-        <select className="input" name="sort" defaultValue={sort}>
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>{option.label}</option>
-          ))}
-        </select>
-      </label>
-      <button className="secondary-button" type="submit">Apply</button>
-      {(query || sort !== options[0].value) && (
-        <Link className="admin-clear" href={`/admin?tab=${tab}`}>Clear</Link>
-      )}
-    </form>
-  );
-}
 
 function EntryFields({ entry }: { entry?: TimelineEntry }) {
   return (

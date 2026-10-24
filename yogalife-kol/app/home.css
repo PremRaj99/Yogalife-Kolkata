@@ -565,24 +565,6 @@
   }
 }
 @media (max-width: 767px) {
-  /* Mobile content is visible immediately, independent of desktop intro styles. */
-  .home-headline,
-  .home-headline-line,
-  .home-headline-word,
-  .home-hero-support,
-  .home-hero-visual,
-  .home-hero-cta,
-  .home-hero-welcome,
-  .home-hero-footer,
-  .home-cta-arrow-icon {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-  }
-  .home-cta-arrow {
-    width: 24px !important;
-    margin-left: 28px !important;
-  }
   .home-hero {
     padding: 16px 0 32px;
   }

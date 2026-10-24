@@ -10,6 +10,7 @@ import { ProgramIllustration } from "./program-illustration";
 import { Sheet } from "./sheet";
 import { Icon } from "./ui";
 import { whatsappUrl } from "./navigation";
+import { ShowMore } from "./show-more";
 
 const MotionLink = motion.create(Link);
 
@@ -34,7 +35,8 @@ export function YogaBento() {
         <h2 id="yoga-programs-title">A practice for every<br />part of your life.</h2>
         <p className="muted">From your first moment on the mat to a deeper path of learning. Find a little space for what you need, right where you are.</p>
       </div>
-      <div className="yoga-bento-grid">
+      {/* 5 cards fill two full rows (featured card spans 2 columns) */}
+      <ShowMore as="div" className="yoga-bento-grid" limit={5}>
         {yogaPrograms.map(program => {
           const href = programLinks[program.id];
           const cardProps = { className: "yoga-bento-card bento-tone-"+program.tone+(program.id==="general"?" bento-featured":""), "aria-labelledby": "bento-title-"+program.id, "aria-describedby": "bento-description-"+program.id, whileHover: { y: -4 }, whileTap: { scale: 0.99 }, transition: { duration: 0.22 } };
@@ -47,7 +49,7 @@ export function YogaBento() {
             ? <MotionLink key={program.id} href={href} {...cardProps}>{content}</MotionLink>
             : <motion.button key={program.id} type="button" onClick={() => { setSelected(program); setTraining("200hr TTC"); }} {...cardProps}>{content}</motion.button>;
         })}
-      </div>
+      </ShowMore>
     </div>
     <Sheet open={selected!==null} onClose={()=>setSelected(null)} title={selected?.title??"Explore a program"} description={selected?.detail}>
       {selected && <div className="bento-program-details"><span className="tag">{selected.category}</span>

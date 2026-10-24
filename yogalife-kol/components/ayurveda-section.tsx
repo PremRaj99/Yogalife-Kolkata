@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ayurvedaTherapies } from "@/lib/ayurveda";
+import { ShowMore } from "./show-more";
 
 export function AyurvedaSection() {
   return (
@@ -10,7 +11,7 @@ export function AyurvedaSection() {
             <h2 id="ayurveda-title">Natural healing for<br />body, mind and spirit.</h2>
           </div>
         </div>
-        <ul className="ayurveda-grid">
+        <ShowMore className="ayurveda-grid" limit={8}>
           {ayurvedaTherapies.map(therapy => (
             <li key={therapy.title} className="ayurveda-card">
               <div className="ayurveda-image">
@@ -20,7 +21,7 @@ export function AyurvedaSection() {
               <p>{therapy.description}</p>
             </li>
           ))}
-        </ul>
+        </ShowMore>
       </div>
     </section>
   );

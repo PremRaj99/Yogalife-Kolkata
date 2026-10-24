@@ -1,4 +1,5 @@
 import { testimonials } from "@/lib/testimonials";
+import { ShowMore } from "./show-more";
 
 const initials = (name: string) => name.split(" ").map(part => part[0]).slice(0, 2).join("");
 
@@ -10,7 +11,8 @@ export function TestimonialsSection() {
           <h2 id="testimonials-title">Loved by our<br />community.</h2>
           <p className="muted">Hear directly from our members about their journey to wellness and peace.</p>
         </div>
-        <ul className="testimonials-masonry">
+        {/* First 7 items (5 videos + 2 reviews) fill 12 cells with no gaps */}
+        <ShowMore className="testimonials-masonry" limit={7}>
           {testimonials.map((item, index) => (
             <li key={index} className="testimonial-card">
               {item.type === "video" ? (
@@ -26,7 +28,7 @@ export function TestimonialsSection() {
               )}
             </li>
           ))}
-        </ul>
+        </ShowMore>
       </div>
     </section>
   );

@@ -136,18 +136,60 @@
   border-bottom: 1px solid var(--color-line);
   background: #fbfcfa;
 }
+/* Same outlined search + icon sort as the public Notice & events section */
 .admin-search {
   flex: 1 1 260px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 44px;
+  padding-inline: 14px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: white;
+}
+.admin-search .input {
+  flex: 1;
+  min-width: 0;
+  min-height: 42px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.admin-search .input:focus-visible {
+  outline: none;
 }
 .admin-sort {
-  flex: 0 1 220px;
+  position: relative;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: white;
+  color: var(--color-forest);
+  cursor: pointer;
 }
-.admin-toolbar .input {
-  min-height: 40px;
-  padding: 8px 12px;
+.admin-sort:hover {
+  border-color: var(--color-forest);
 }
-.admin-toolbar .secondary-button {
-  min-height: 40px;
+.admin-sort .input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.admin-search:focus-within,
+.admin-sort:focus-within {
+  border-color: var(--color-forest);
+  box-shadow: 0 0 0 2px #234d3c25;
 }
 .admin-clear {
   color: var(--color-muted);
@@ -300,12 +342,13 @@
     width: 100%;
     flex-wrap: wrap;
   }
-  .admin-search,
-  .admin-sort {
-    flex: 1 1 100%;
+  .admin-search {
+    flex: 1 1 0;
   }
-  .admin-toolbar .secondary-button {
-    flex: 1;
+  /* 16px prevents iOS zoom on focus */
+  .admin-search .input,
+  .admin-sort .input {
+    font-size: 16px;
   }
 
   .admin-table thead {
