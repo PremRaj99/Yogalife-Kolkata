@@ -43,6 +43,7 @@ const resources = [
       "Connect with our team for yoga insights, mindful living resources and guidance for your practice.",
     icon: PiArticleThin,
     caption: "Yoga, wellbeing & everyday wisdom",
+    href: "/blog",
   },
   {
     name: "Gallery",
@@ -219,7 +220,7 @@ function getServerScrollSnapshot() {
 export function HomeNavigation({
   current = "home",
 }: {
-  current?: "home" | "about" | "gallery" | "contact" | "ttc" | "program";
+  current?: "home" | "about" | "gallery" | "blog" | "contact" | "ttc" | "program";
 }) {
   const homeHref = current === "home" ? "#top" : "/";
   const scrolled = useSyncExternalStore(

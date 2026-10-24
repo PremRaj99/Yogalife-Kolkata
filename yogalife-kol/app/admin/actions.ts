@@ -103,6 +103,55 @@ export async function deleteEntry(formData: FormData) {
   revalidatePath("/admin");
 }
 
+const postSchema = z.object({
+  title: z.string().trim().min(1).max(200),
+  author: z.string().trim().max(100).default(""),
+  excerpt: z.string().trim().max(300).default(""),
+  body: z.string().trim().min(1).max(50000),
+});
+
+const slugify = (title: string) =>
+  title
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || "post";
+
+export async function createPost(formData: FormData) {
+  await requireAdmin();
+  const post = postSchema.parse(Object.fromEntries(formData));
+  const db = await getDb();
+  const blogs = db.collection("blogs");
+  const base = slugify(post.title);
+  // Keep URLs unique when two posts share a title.
+  const taken = await blogs.countDocuments({ slug: base });
+  const slug = taken ? `${base}-${crypto.randomUUID().slice(0, 6)}` : base;
+  await blogs.insertOne({ ...post, slug, publishedAt: new Date() });
+  revalidatePath("/admin");
+  revalidatePath("/blog");
+}
+
+export async function updatePost(formData: FormData) {
+  await requireAdmin();
+  // Slug stays fixed so shared links keep working.
+  const post = postSchema.parse(Object.fromEntries(formData));
+  const db = await getDb();
+  await db
+    .collection("blogs")
+    .updateOne({ _id: readId(formData) }, { $set: { ...post, updatedAt: new Date() } });
+  revalidatePath("/admin");
+  revalidatePath("/blog", "layout");
+}
+
+export async function deletePost(formData: FormData) {
+  await requireAdmin();
+  const db = await getDb();
+  await db.collection("blogs").deleteOne({ _id: readId(formData) });
+  revalidatePath("/admin");
+  revalidatePath("/blog", "layout");
+}
+
 export async function deleteRegistration(formData: FormData) {
   await requireAdmin();
   const db = await getDb();

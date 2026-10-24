@@ -425,6 +425,17 @@
   }
 }
 
+/* Blog editor */
+.blog-editor { display: flex; flex-direction: column; gap: 8px; }
+.blog-editor-label { font-size: 14px; font-weight: 500; }
+.blog-editor-loading { display: grid; place-items: center; height: 420px; border: 1px solid var(--color-line); border-radius: var(--radius-card); color: var(--color-muted); }
+.blog-editor .w-md-editor { border-radius: var(--radius-card); box-shadow: 0 0 0 1px var(--color-line); }
+.blog-editor .w-md-editor-toolbar li > button:focus-visible { outline: 2px solid var(--color-forest); outline-offset: 1px; }
+
+/* Full screen: the dialog fills the viewport so the editor's fixed overlay isn't clipped. */
+.admin-dialog.is-fullscreen { inset: 0; width: 100%; height: 100%; max-height: none; border-radius: 0; animation: none; overflow: hidden; }
+.blog-editor .w-md-editor-fullscreen { z-index: 10; border-radius: 0; }
+
 /* Dialog */
 .admin-dialog {
   position: fixed;

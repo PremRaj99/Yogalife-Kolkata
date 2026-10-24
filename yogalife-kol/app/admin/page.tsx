@@ -9,11 +9,16 @@ import {
   adminSignIn,
   adminSignOut,
   createEntry,
+  createPost,
   deleteEntry,
+  deletePost,
   deleteRegistration,
   updateEntry,
+  updatePost,
 } from "./actions";
+import { formatPostDate, type BlogPost } from "@/lib/blog";
 import { FormDialog } from "./form-dialog";
+import { BlogEditor } from "./blog-editor";
 import { DateTimeFields } from "./date-time-fields";
 import { matchesRegistration } from "./registration-filter";
 import { EmailActions, SelectAll } from "./email-actions";
@@ -40,8 +45,113 @@ const tabs = [
   { id: "events", label: "Events" },
   { id: "notices", label: "Notices" },
   { id: "registrations", label: "Registrations" },
+  { id: "blog", label: "Blog" },
 ] as const;
 type Tab = (typeof tabs)[number]["id"];
+
+const blogSorts: SortOption[] = [
+  { value: "newest", label: "Newest first" },
+  { value: "oldest", label: "Oldest first" },
+  { value: "title", label: "Title A–Z" },
+];
+
+function PostFields({ post }: { post?: BlogPost }) {
+  return (
+    <div className="admin-fields">
+      <label className="field admin-wide">
+        Title
+        <input className="input" name="title" required maxLength={200} defaultValue={post?.title} />
+      </label>
+      <label className="field admin-wide">
+        Author
+        <input className="input" name="author" maxLength={100} defaultValue={post?.author} />
+      </label>
+      <label className="field admin-wide">
+        Summary (optional, shown on the blog list)
+        <textarea className="input" name="excerpt" rows={2} maxLength={300} defaultValue={post?.excerpt} />
+      </label>
+      <BlogEditor defaultValue={post?.body} />
+    </div>
+  );
+}
+
+function BlogTable({
+  posts,
+  query,
+  sort,
+}: {
+  posts: (BlogPost & { _id: { toString(): string } })[];
+  query: string;
+  sort: string;
+}) {
+  const q = query.toLowerCase();
+  const rows = posts
+    .filter((post) => !q || [post.title, post.author, post.excerpt].join(" ").toLowerCase().includes(q))
+    .sort((a, b) => {
+      if (sort === "oldest") return a.publishedAt.getTime() - b.publishedAt.getTime();
+      if (sort === "title") return a.title.localeCompare(b.title);
+      return b.publishedAt.getTime() - a.publishedAt.getTime();
+    });
+  return (
+    <section className="admin-panel" aria-labelledby="blog-heading">
+      <div className="admin-panel-head">
+        <div>
+          <h2 id="blog-heading">Blog</h2>
+          <p className="small muted">
+            {query ? `${rows.length} of ${posts.length} shown` : `${posts.length} total`}
+          </p>
+        </div>
+        <FormDialog label="Add post" buttonClass="button" title="Add post" submitLabel="Publish post" action={createPost}>
+          <PostFields />
+        </FormDialog>
+      </div>
+      <Toolbar tab="blog" query={query} sort={sort} options={blogSorts} placeholder="Search posts by title or author…" />
+      {rows.length === 0 ? (
+        <p className="admin-empty">
+          {posts.length === 0 ? "No posts yet. Use “Add post” to write one." : `No posts match “${query}”.`}
+        </p>
+      ) : (
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Published</th>
+                <th scope="col" className="admin-actions-col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((post) => {
+                const id = post._id.toString();
+                return (
+                  <tr key={id}>
+                    <td className="admin-title-cell">{post.title}</td>
+                    <td data-label="Author">{post.author || "–"}</td>
+                    <td data-label="Published">{formatPostDate(post.publishedAt)}</td>
+                    <td className="admin-actions-cell">
+                      <div className="admin-row-actions">
+                        <Link className="secondary-button" href={`/blog/${post.slug}`} target="_blank">View</Link>
+                        <FormDialog label="Edit" title="Edit post" submitLabel="Save changes" action={updatePost}>
+                          <input type="hidden" name="_id" value={id} />
+                          <PostFields post={post} />
+                        </FormDialog>
+                        <FormDialog label="Delete" buttonClass="secondary-button admin-danger-outline" title="Delete post?" submitLabel="Delete" danger action={deletePost}>
+                          <input type="hidden" name="_id" value={id} />
+                          <p>“{post.title}” will be removed from the website. This can’t be undone.</p>
+                        </FormDialog>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
+  );
+}
 
 const todayIst = () =>
   new Intl.DateTimeFormat("en-CA", {
@@ -344,7 +454,7 @@ export default async function AdminPage({
       <main className="admin-page admin-signin-page">
         <div className="admin-signin">
           <h1>Yogalife admin</h1>
-          <p className="muted">Sign in with an approved Google account to manage notices, events and registrations.</p>
+          <p className="muted">Sign in with an approved Google account to manage notices, events, registrations and blog posts.</p>
           {error && (
             <p className="field-error" role="alert">
               This Google account doesn&apos;t have admin access.
@@ -360,9 +470,10 @@ export default async function AdminPage({
 
   const tab: Tab = tabs.some((item) => item.id === tabParam) ? (tabParam as Tab) : "events";
   const db = await getDb();
-  const [docs, registrations] = await Promise.all([
+  const [docs, registrations, posts] = await Promise.all([
     db.collection<TimelineDoc>("timeline").find().sort({ order: 1 }).toArray(),
     db.collection<RegistrationDoc>("registrations").find().sort({ createdAt: -1 }).limit(500).toArray(),
+    db.collection<BlogPost>("blogs").find().sort({ publishedAt: -1 }).toArray(),
   ]);
   const events = docs.filter((doc) => doc.kind === "event");
   const notices = docs.filter((doc) => doc.kind === "notice");
@@ -374,6 +485,7 @@ export default async function AdminPage({
     events: events.length,
     notices: notices.length,
     registrations: registrations.length,
+    blog: posts.length,
   };
 
   return (
@@ -409,6 +521,9 @@ export default async function AdminPage({
         )}
         {tab === "registrations" && (
           <RegistrationsTable registrations={registrations} query={query} sort={pickSort(registrationSorts, sort)} />
+        )}
+        {tab === "blog" && (
+          <BlogTable posts={posts} query={query} sort={pickSort(blogSorts, sort)} />
         )}
       </div>
     </main>
