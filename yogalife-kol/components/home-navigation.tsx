@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   useEffect,
   useRef,
@@ -34,11 +35,6 @@ type Menu = "program" | "resources";
 type Detail = { name: string; description: string };
 type Panel = { kind: Menu } | { kind: "detail"; detail: Detail };
 
-const about: Detail = {
-  name: "About Yogalife Kolkata",
-  description:
-    "Rooted in Indian tradition, Yogalife Kolkata brings yoga, mindful movement and holistic wellbeing into everyday life. Begin where you are, and move at your own pace.",
-};
 const contact: Detail = {
   name: "Contact us",
   description:
@@ -186,7 +182,12 @@ function getServerScrollSnapshot() {
   return false;
 }
 
-export function HomeNavigation() {
+export function HomeNavigation({
+  current = "home",
+}: {
+  current?: "home" | "about";
+}) {
+  const homeHref = current === "home" ? "#top" : "/";
   const scrolled = useSyncExternalStore(
     subscribeToScroll,
     getScrollSnapshot,
@@ -252,9 +253,9 @@ export function HomeNavigation() {
         }}
       >
         <div className="container header-inner">
-          <a
+          <Link
             className="home-logo"
-            href="#top"
+            href={homeHref}
             aria-label="Yogalife Kolkata home"
           >
             <Image
@@ -265,22 +266,22 @@ export function HomeNavigation() {
               sizes="144px"
               preload
             />
-          </a>
+          </Link>
           <nav className="desktop-nav" aria-label="Main navigation">
-            <a
-              href="#top"
-              aria-current="page"
+            <Link
+              href={homeHref}
+              aria-current={current === "home" ? "page" : undefined}
               onPointerEnter={() => setMenu(null)}
             >
               Home
-            </a>
-            <button
-              className="nav-trigger"
+            </Link>
+            <Link
+              href="/about"
+              aria-current={current === "about" ? "page" : undefined}
               onPointerEnter={() => setMenu(null)}
-              onClick={() => showDetail(about)}
             >
               About
-            </button>
+            </Link>
             <button
               className="nav-trigger"
               aria-expanded={menu === "program"}
@@ -353,14 +354,20 @@ export function HomeNavigation() {
         className="mobile-nav home-mobile-nav"
         aria-label="Mobile navigation"
       >
-        <a href="#top" aria-current="page">
+        <Link
+          href={homeHref}
+          aria-current={current === "home" ? "page" : undefined}
+        >
           <Icon icon={PiHouseThin} />
           Home
-        </a>
-        <button onClick={() => showDetail(about)}>
+        </Link>
+        <Link
+          href="/about"
+          aria-current={current === "about" ? "page" : undefined}
+        >
           <Icon icon={PiHeartThin} />
           About
-        </button>
+        </Link>
         <button onClick={() => showMobileMenu("program")}>
           <Icon icon={PiFlowerLotusThin} />
           Program
@@ -402,7 +409,7 @@ export function HomeNavigation() {
             rel="noopener noreferrer"
           >
             <Icon icon={PiWhatsappLogoThin} size="sm" />
-            Talk to our team
+            Talk with Us
           </a>
         )}
       </Sheet>

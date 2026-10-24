@@ -6,18 +6,19 @@ const columns = [
   {
     title: "Explore",
     links: [
-      { label: "Notices & events", href: "#notices-events" },
-      { label: "Yoga programs", href: "#yoga-programs" },
-      { label: "Testimonials", href: "#testimonials" },
-      { label: "FAQs", href: "#faq" },
+      { label: "About us", href: "/about" },
+      { label: "Notices & events", href: "/#notices-events" },
+      { label: "Yoga programs", href: "/#yoga-programs" },
+      { label: "Testimonials", href: "/#testimonials" },
+      { label: "FAQs", href: "/#faq" },
     ],
   },
   {
     title: "Wellness",
     links: [
-      { label: "Naturopathy", href: "#naturopathy" },
-      { label: "Ayurveda", href: "#ayurveda" },
-      { label: "Retreats", href: "#retreats" },
+      { label: "Naturopathy", href: "/#naturopathy" },
+      { label: "Ayurveda", href: "/#ayurveda" },
+      { label: "Retreats", href: "/#retreats" },
       { label: "Get started", href: "#get-started" },
     ],
   },

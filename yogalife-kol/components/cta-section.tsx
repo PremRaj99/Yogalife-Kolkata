@@ -13,7 +13,7 @@ export function CtaSection() {
           <h2 id="cta-title">From your first breath<br />to a lasting practice.</h2>
           <p className="muted">Yoga, Ayurveda, naturopathy and retreats, guided in one place. Tell us where you are and we’ll help you find your next step.</p>
           <a className="button" href={whatsappUrl + "%20I%27d%20like%20to%20get%20started."} target="_blank" rel="noopener noreferrer">
-            <Icon icon={PiWhatsappLogoThin} size="sm" />Talk to our team
+            <Icon icon={PiWhatsappLogoThin} size="sm" />Talk with Us
           </a>
         </div>
 

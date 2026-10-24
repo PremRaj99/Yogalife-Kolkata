@@ -12,7 +12,7 @@ export const yogaPrograms = [
     title: "Private sessions",
     category: "Your own rhythm",
     description: "One-to-one guidance, with the time and attention you need.",
-    detail: "Explore a personal yoga practice with dedicated one-to-one attention. Talk to our team about your experience, goals and preferred pace so we can help you find a suitable starting point.",
+    detail: "Explore a personal yoga practice with dedicated one-to-one attention. Talk with us about your experience, goals and preferred pace so we can help you find a suitable starting point.",
     tone: "sage",
   },
   {

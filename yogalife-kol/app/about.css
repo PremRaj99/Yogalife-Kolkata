@@ -1,0 +1,82 @@
+/* Shared arch silhouette (illustration mask, per design system) */
+.about-arch { position: relative; overflow: hidden; border-radius: 999px 999px var(--radius-image) var(--radius-image); background: var(--color-cream); }
+.about-arch img { object-fit: cover; object-position: top; }
+
+/* Eyebrows on this page render without the decorative leading line */
+.about-hero .eyebrow:before,
+.about-story .eyebrow:before { display: none; }
+
+/* Hero: oversized headline beside an arch collage */
+.about-hero { padding-top: 48px; overflow-x: clip; }
+.about-hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 48px; }
+.about-hero h1 { font-size: clamp(44px, 6vw, 84px); line-height: 1.02; margin-bottom: 28px; }
+.about-hero h1 em { font-style: italic; font-weight: 400; color: var(--color-forest); }
+.about-lead { max-width: 480px; font-size: 18px; margin-bottom: 0; }
+.about-collage { position: relative; height: 520px; }
+.about-collage-main { position: absolute; inset: 0 18% 0 8%; }
+.about-collage-main img { object-fit: contain; object-position: bottom; padding: 40px 16px 0; }
+.about-collage-small { position: absolute; width: 36%; height: 46%; right: 0; bottom: 6%; border: 6px solid var(--color-white); box-shadow: var(--shadow-raised); }
+.about-collage-chip { position: absolute; left: 0; top: 14%; display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-button); background: var(--color-white); box-shadow: var(--shadow-raised); color: var(--color-forest); font-size: 14px; font-weight: 500; }
+
+/* Story: large statement beside numbered principles */
+.about-story-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
+.about-statement { font-size: clamp(28px, 3vw, 40px); line-height: 1.25; letter-spacing: -0.03em; font-weight: 500; margin: 0; }
+.about-statement span { color: var(--color-muted); }
+.about-principles { margin: 0; padding: 0; list-style: none; counter-reset: principle; }
+.about-principles li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding-block: 24px; border-bottom: 1px solid var(--color-line); counter-increment: principle; }
+.about-principles li:first-child { padding-top: 0; }
+.about-principles li::before { content: "0" counter(principle); font-size: 14px; color: var(--color-forest); padding-top: 4px; }
+.about-principles h3 { font-size: 20px; margin-bottom: 6px; letter-spacing: -0.02em; }
+.about-principles p { margin: 0; font-size: 15px; }
+
+/* Founders: alternating editorial rows */
+.about-founder { display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: center; }
+.about-founder + .about-founder { margin-top: 96px; }
+.about-founder.is-reversed { grid-template-columns: 8fr 4fr; }
+.about-founder.is-reversed .about-founder-photo { order: 2; justify-self: end; }
+.about-founder-photo { width: 100%; max-width: 340px; aspect-ratio: 4 / 5; background: var(--color-sage); }
+.about-founder-role { display: block; font-size: clamp(44px, 5vw, 72px); line-height: 1; font-style: italic; font-weight: 400; color: var(--color-forest); letter-spacing: -0.04em; margin-bottom: 24px; }
+.about-founder h3 { margin-bottom: 16px; }
+.about-founder p { max-width: 520px; font-size: 17px; margin: 0; }
+
+/* Core team: open rows, no boxes */
+.about-team-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--color-line); }
+.about-team-row { display: grid; grid-template-columns: 88px 1fr 1.5fr; gap: 32px; align-items: center; padding-block: 24px; border-bottom: 1px solid var(--color-line); }
+.about-team-photo { position: relative; width: 88px; height: 88px; border-radius: 50%; overflow: hidden; background: var(--color-sage); }
+.about-team-photo img { object-fit: cover; object-position: top; }
+.about-team-row h3 { font-size: 22px; margin-bottom: 8px; }
+.about-team-row .tag { font-size: 12px; }
+.about-team-row p { margin: 0; font-size: 15px; }
+
+/* Teachers: staggered arch portraits on cream */
+.about-teacher-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px 24px; margin: 0; padding: 0 0 48px; list-style: none; }
+.about-teacher-grid li:nth-child(even) { transform: translateY(48px); }
+.about-teacher-photo { aspect-ratio: 3 / 4; margin-bottom: 16px; background: var(--color-white); box-shadow: var(--shadow-outer); }
+.about-teacher-grid h3 { font-size: 18px; margin-bottom: 2px; letter-spacing: -0.02em; }
+.about-teacher-grid p { margin: 0; }
+
+@media (max-width: 1023px) {
+  .about-story-grid, .about-founder, .about-founder.is-reversed { gap: 40px; }
+  .about-team-row { grid-template-columns: 72px 1fr; gap: 8px 24px; }
+  .about-team-photo { width: 72px; height: 72px; grid-row: span 2; }
+  .about-teacher-grid { grid-template-columns: repeat(3, 1fr); }
+  .about-teacher-grid li:nth-child(even) { transform: none; }
+  .about-teacher-grid li:nth-child(3n + 2) { transform: translateY(40px); }
+}
+@media (max-width: 767px) {
+  .about-hero { padding-top: 24px; }
+  .about-hero-grid, .about-story-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-collage { height: 380px; order: -1; }
+  .about-founder, .about-founder.is-reversed { grid-template-columns: 1fr; gap: 24px; }
+  .about-founder.is-reversed .about-founder-photo { order: 0; justify-self: start; }
+  .about-founder-photo { max-width: 280px; }
+  .about-founder + .about-founder { margin-top: 64px; }
+}
+@media (max-width: 639px) {
+  .about-team-row { grid-template-columns: 56px 1fr; gap: 8px 16px; align-items: start; }
+  .about-team-photo { width: 56px; height: 56px; grid-row: auto; }
+  .about-team-row p { grid-column: 1 / -1; }
+  .about-teacher-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+  .about-teacher-grid li:nth-child(3n + 2) { transform: none; }
+  .about-teacher-grid li:nth-child(even) { transform: translateY(32px); }
+}
