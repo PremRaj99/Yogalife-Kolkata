@@ -24,7 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { level } = await params;
   const course = ttcCourses.find((c) => c.level === level);
   if (!course) return {};
-  return { title: course.title + " in Kolkata", description: course.tagline };
+  return {
+    title: course.title + " in Kolkata",
+    description: course.tagline,
+    alternates: { canonical: "/ttc/" + course.level },
+  };
 }
 
 export default async function TtcPage({ params }: Props) {

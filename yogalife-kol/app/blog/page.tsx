@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "Blog | Yoga, Wellbeing & Everyday Wisdom",
   description:
     "Yoga insights, mindful living resources and guidance for your practice from Yogalife Kolkata.",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function Blog() {

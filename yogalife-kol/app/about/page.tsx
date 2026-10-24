@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "About Us | Yoga Teachers & Guides in Kolkata",
   description:
     "Meet the Yogalife Kolkata team: yoga gurus, therapists, Ayurveda practitioners and certified yoga teachers guiding mindful practice and holistic wellness in Kolkata.",
+  alternates: { canonical: "/about" },
 };
 
 const principles = [

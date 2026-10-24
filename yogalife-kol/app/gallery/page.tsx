@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Gallery | Moments from Yogalife Kolkata",
   description:
     "Photos from yoga classes, workshops and community gatherings at Yogalife Kolkata.",
+  alternates: { canonical: "/gallery" },
 };
 
 // Photos live in public/images/gallery/<YYYY-MM-DD>/, one folder per day.

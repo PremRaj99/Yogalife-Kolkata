@@ -9,6 +9,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSanitize from "rehype-sanitize";
 import { SiteFooter } from "@/components/site-footer";
 import { formatPostDate, getPost, postExcerpt } from "@/lib/blog";
+import { openGraphBase } from "@/lib/site";
 import "../../home.css";
 import "../../cta.css";
 import "../../footer.css";
@@ -19,8 +20,23 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   await connection();
   const post = await getPost((await params).slug);
-  if (!post) return { title: "Post not found" };
-  return { title: `${post.title} | Yogalife Kolkata Blog`, description: postExcerpt(post) };
+  if (!post) return { title: "Post not found", robots: { index: false } };
+  const description = postExcerpt(post);
+  return {
+    // The root title template already appends "| Yogalife Kolkata".
+    title: post.title,
+    description,
+    alternates: { canonical: "/blog/" + post.slug },
+    openGraph: {
+      ...openGraphBase,
+      type: "article",
+      title: post.title,
+      description,
+      publishedTime: post.publishedAt.toISOString(),
+      modifiedTime: post.updatedAt?.toISOString(),
+      authors: post.author ? [post.author] : undefined,
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: Props) {

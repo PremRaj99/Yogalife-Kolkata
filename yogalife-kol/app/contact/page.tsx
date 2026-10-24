@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "Contact Us | Visit Our Yoga Studio",
   description:
     "Get in touch with Yogalife Kolkata. Call, WhatsApp or email us, or find our studio on the map.",
+  alternates: { canonical: "/contact" },
 };
 
 // Share link from Google Maps. For a pinned embed, replace mapEmbed with the

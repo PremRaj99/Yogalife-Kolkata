@@ -23,7 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const program = programPages.find((p) => p.slug === slug);
   if (!program) return {};
-  return { title: program.title + " in Kolkata", description: program.tagline };
+  return {
+    title: program.title + " in Kolkata",
+    description: program.tagline,
+    alternates: { canonical: "/programs/" + program.slug },
+  };
 }
 
 export default async function ProgramPage({ params }: Props) {

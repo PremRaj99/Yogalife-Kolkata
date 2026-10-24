@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   title: "Yoga in Kolkata | Find Your Inner Balance",
   description:
     "Begin your yoga journey with Yogalife Kolkata. Discover mindful movement, breathwork and traditional Indian wellness in a welcoming space for beginners.",
+  alternates: { canonical: "/" },
 };
 export default function Home() {
   return (
