@@ -26,6 +26,7 @@ import {
   teacherTraining,
   trainingCourses,
 } from "@/lib/navigation-data";
+import { programHref } from "@/lib/program-pages";
 import { whatsappUrl } from "./navigation";
 import { Icon } from "./ui";
 import { Sheet } from "./sheet";
@@ -35,11 +36,6 @@ type Menu = "program" | "resources";
 type Detail = { name: string; description: string };
 type Panel = { kind: Menu } | { kind: "detail"; detail: Detail };
 
-const contact: Detail = {
-  name: "Contact us",
-  description:
-    "Ask about our yoga programs, beginner classes and wellness experiences in Kolkata. Our team can help you find a starting point that feels right for you.",
-};
 const resources = [
   {
     name: "Blog",
@@ -54,10 +50,17 @@ const resources = [
       "Ask our team about life at Yogalife Kolkata, our yoga community and retreat experiences.",
     icon: PiImagesThin,
     caption: "Moments from our yoga community",
+    href: "/gallery",
   },
 ];
 
-function ProgramMenu({ onSelect }: { onSelect: (detail: Detail) => void }) {
+function ProgramMenu({
+  onSelect,
+  onNavigate,
+}: {
+  onSelect: (detail: Detail) => void;
+  onNavigate: () => void;
+}) {
   function select(name: string) {
     onSelect({
       name,
@@ -76,29 +79,40 @@ function ProgramMenu({ onSelect }: { onSelect: (detail: Detail) => void }) {
         <h3>{programGroups[0].title}</h3>
         <p>A welcoming practice, wherever you begin.</p>
         <ul>
-          {programGroups[0].programs.map((name) => (
-            <li key={name}>
-              <button onClick={() => select(name)}>{name}</button>
-            </li>
-          ))}
+          {programGroups[0].programs.map((name) => {
+            const href = programHref(name);
+            return (
+              <li key={name}>
+                {href ? (
+                  <Link className="home-menu-link" href={href} onClick={onNavigate}>
+                    {name}
+                  </Link>
+                ) : (
+                  <button onClick={() => select(name)}>{name}</button>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="home-menu-group home-training-group">
         <span className="home-menu-eyebrow">Learn. Practise. Share.</span>
         <ul>
           <li>
-            <button
+            <Link
               className="home-training-title"
-              onClick={() => select(teacherTraining)}
+              href="/ttc/200hr"
+              onClick={onNavigate}
             >
               {teacherTraining}
-            </button>
+            </Link>
             <ul className="home-training-levels">
               {trainingCourses.map((name, index) => (
                 <li key={name}>
-                  <button
+                  <Link
                     className="home-course-choice"
-                    onClick={() => select(name)}
+                    href={"/ttc/" + name.split(" ")[0]}
+                    onClick={onNavigate}
                   >
                     <span className="home-course-hours" aria-hidden="true">
                       {name.split("hr")[0]}
@@ -116,7 +130,7 @@ function ProgramMenu({ onSelect }: { onSelect: (detail: Detail) => void }) {
                         }
                       </span>
                     </span>
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -140,11 +154,20 @@ function ProgramMenu({ onSelect }: { onSelect: (detail: Detail) => void }) {
         <h3>{programGroups[1].title}</h3>
         <p>A little stillness. A more balanced everyday.</p>
         <ul>
-          {programGroups[1].programs.map((name) => (
-            <li key={name}>
-              <button onClick={() => select(name)}>{name}</button>
-            </li>
-          ))}
+          {programGroups[1].programs.map((name) => {
+            const href = programHref(name);
+            return (
+              <li key={name}>
+                {href ? (
+                  <Link className="home-menu-link" href={href} onClick={onNavigate}>
+                    {name}
+                  </Link>
+                ) : (
+                  <button onClick={() => select(name)}>{name}</button>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
@@ -154,19 +177,30 @@ function ProgramMenu({ onSelect }: { onSelect: (detail: Detail) => void }) {
 function ResourcesMenu({ onSelect }: { onSelect: (detail: Detail) => void }) {
   return (
     <div className="home-resources-grid">
-      {resources.map((resource) => (
-        <button
-          key={resource.name}
-          className="home-resource-link"
-          onClick={() => onSelect(resource)}
-        >
-          <Icon icon={resource.icon} />
-          <span>
-            <strong>{resource.name}</strong>
-            <small>{resource.caption}</small>
-          </span>
-        </button>
-      ))}
+      {resources.map((resource) => {
+        const content = (
+          <>
+            <Icon icon={resource.icon} />
+            <span>
+              <strong>{resource.name}</strong>
+              <small>{resource.caption}</small>
+            </span>
+          </>
+        );
+        return "href" in resource && resource.href ? (
+          <Link key={resource.name} className="home-resource-link" href={resource.href}>
+            {content}
+          </Link>
+        ) : (
+          <button
+            key={resource.name}
+            className="home-resource-link"
+            onClick={() => onSelect(resource)}
+          >
+            {content}
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -185,7 +219,7 @@ function getServerScrollSnapshot() {
 export function HomeNavigation({
   current = "home",
 }: {
-  current?: "home" | "about";
+  current?: "home" | "about" | "gallery" | "contact" | "ttc" | "program";
 }) {
   const homeHref = current === "home" ? "#top" : "/";
   const scrolled = useSyncExternalStore(
@@ -225,6 +259,10 @@ export function HomeNavigation({
     trigger.current = button;
     const bounds = button.getBoundingClientRect();
     setMenuAnchor(bounds.left + bounds.width / 2);
+  }
+  function closeAll() {
+    setMenu(null);
+    setPanel(null);
   }
   function showMobileMenu(kind: Menu) {
     setMenu(null);
@@ -316,13 +354,13 @@ export function HomeNavigation({
             >
               Resources <Icon icon={PiCaretDownThin} size="sm" />
             </button>
-            <button
-              className="nav-trigger"
+            <Link
+              href="/contact"
+              aria-current={current === "contact" ? "page" : undefined}
               onPointerEnter={() => setMenu(null)}
-              onClick={() => showDetail(contact)}
             >
               Contact Us
-            </button>
+            </Link>
           </nav>
         </div>
         <AnimatePresence>
@@ -341,7 +379,7 @@ export function HomeNavigation({
                 aria-label={menu === "program" ? "Programs" : "Resources"}
               >
                 {menu === "program" ? (
-                  <ProgramMenu onSelect={showDetail} />
+                  <ProgramMenu onSelect={showDetail} onNavigate={closeAll} />
                 ) : (
                   <ResourcesMenu onSelect={showDetail} />
                 )}
@@ -376,10 +414,13 @@ export function HomeNavigation({
           <Icon icon={PiBookOpenThin} />
           Resources
         </button>
-        <button onClick={() => showDetail(contact)}>
+        <Link
+          href="/contact"
+          aria-current={current === "contact" ? "page" : undefined}
+        >
           <Icon icon={PiEnvelopeThin} />
           Contact Us
-        </button>
+        </Link>
       </nav>
       <Sheet
         key={panelTitle}
@@ -391,7 +432,7 @@ export function HomeNavigation({
         }
       >
         {panel?.kind === "program" ? (
-          <ProgramMenu onSelect={showDetail} />
+          <ProgramMenu onSelect={showDetail} onNavigate={closeAll} />
         ) : panel?.kind === "resources" ? (
           <ResourcesMenu onSelect={showDetail} />
         ) : (

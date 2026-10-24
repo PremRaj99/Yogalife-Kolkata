@@ -285,6 +285,37 @@
   line-height: 1.5;
   font-size: 14px;
 }
+/* Program links in the menu; match the button styling */
+.home-menu-group a.home-menu-link {
+  display: block;
+  min-height: 44px;
+  padding: 10px 0;
+  color: var(--color-ink);
+  text-decoration: none;
+  line-height: 1.5;
+  font-size: 14px;
+}
+.home-menu-group a.home-menu-link:hover {
+  color: var(--color-forest);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+/* TTC entries are links; match the button styling */
+.home-menu-group a.home-training-title {
+  display: block;
+}
+.home-menu-group a.home-training-title,
+.home-menu-group a.home-course-choice {
+  min-height: 44px;
+  color: var(--color-ink);
+  text-decoration: none;
+  line-height: 1.5;
+}
+.home-menu-group a.home-training-title:hover {
+  color: var(--color-forest);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 .home-menu-group button:hover {
   color: var(--color-forest);
   text-decoration: underline;

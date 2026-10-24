@@ -301,6 +301,26 @@
   line-height: 1.7;
   color: var(--color-muted);
 }
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+}
+.registration-form h3 {
+  margin: 0;
+}
+.registration-form textarea {
+  resize: vertical;
+  font: inherit;
+}
+.registration-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
 .updates-history-note {
   background: var(--color-cream);
   color: var(--color-muted);

@@ -19,6 +19,7 @@ import { timelineFiltersSchema, type TimelineEntry } from "@/lib/event-schemas";
 import { Icon, Button, Skeleton } from "./ui";
 import { Sheet } from "./sheet";
 import { whatsappUrl } from "./navigation";
+import { RegistrationForm } from "./registration-form";
 
 const pageSize = 4;
 const monthNames = [
@@ -438,25 +439,10 @@ export function NoticesEvents() {
                 This event date has passed. These details are part of our
                 community archive.
               </p>
-            ) : selected.kind === "event" && !selected.registrationUrl ? (
-              <p className="updates-history-note">
-                Dates and registration details will be announced soon.
-              </p>
+            ) : selected.kind === "event" ? (
+              <RegistrationForm key={selected.id} eventId={selected.id} />
             ) : null}
             <div className="row">
-              {selected.kind === "event" &&
-                !selectedIsPast &&
-                selected.registrationUrl && (
-                  <a
-                    className="button"
-                    href={selected.registrationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open registration{" "}
-                    <Icon icon={PiArrowUpRightThin} size="sm" />
-                  </a>
-                )}
               <a
                 className="secondary-button"
                 href={

@@ -583,6 +583,8 @@ small,
   inset: 0;
   margin: auto;
   width: min(540px, calc(100% - 32px));
+  height: fit-content;
+  max-width: none;
   max-height: 88dvh;
   overflow-y: auto;
   border: none;
@@ -611,6 +613,11 @@ small,
 }
 .drawer-handle {
   display: none;
+}
+@keyframes drawer-up {
+  from {
+    transform: translateY(100%);
+  }
 }
 .calendar-head {
   display: grid;
@@ -830,6 +837,7 @@ small,
     max-height: 90dvh;
     border-radius: 12px 12px 0 0;
     padding: 16px 20px calc(24px + env(safe-area-inset-bottom));
+    animation: drawer-up 0.25s ease-out;
   }
   .drawer-handle {
     display: block;

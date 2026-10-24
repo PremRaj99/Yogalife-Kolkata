@@ -1,14 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { PiArrowUpRightThin, PiWhatsappLogoThin } from "react-icons/pi";
-import { yogaPrograms, type YogaProgram } from "@/lib/yoga-programs";
+import { yogaPrograms, type YogaProgram, type YogaProgramId } from "@/lib/yoga-programs";
 import { trainingCourses } from "@/lib/navigation-data";
 import { ProgramIllustration } from "./program-illustration";
 import { Sheet } from "./sheet";
 import { Icon } from "./ui";
 import { whatsappUrl } from "./navigation";
+
+const MotionLink = motion.create(Link);
+
+// Cards with a dedicated page link there; the rest open the enquiry sheet.
+const programLinks: Partial<Record<YogaProgramId, string>> = {
+  general: "/programs/group-yoga-training",
+  private: "/programs/personal-yoga-training",
+  training: "/ttc/200hr",
+  workshops: "/#notices-events",
+  consultation: "/contact",
+  physiotherapy: "/programs/yoga-therapy",
+  ayurveda: "/programs/ayurveda-consultation",
+};
 
 export function YogaBento() {
   const [selected, setSelected] = useState<YogaProgram | null>(null);
@@ -21,11 +35,18 @@ export function YogaBento() {
         <p className="muted">From your first moment on the mat to a deeper path of learning. Find a little space for what you need, right where you are.</p>
       </div>
       <div className="yoga-bento-grid">
-        {yogaPrograms.map(program => <motion.button key={program.id} type="button" className={"yoga-bento-card bento-tone-"+program.tone+(program.id==="general"?" bento-featured":"")} aria-labelledby={"bento-title-"+program.id} aria-describedby={"bento-description-"+program.id} onClick={() => { setSelected(program); setTraining("200hr TTC"); }} whileHover={{ y: -4 }} whileTap={{ scale: 0.99 }} transition={{ duration: 0.22 }}>
-          <span className="bento-card-top"><span>{program.category}</span><Icon icon={PiArrowUpRightThin} size="sm" /></span>
-          <div className="bento-art"><ProgramIllustration kind={program.id} /></div>
-          <div className="bento-card-copy"><h3 id={"bento-title-"+program.id}>{program.title}</h3><p id={"bento-description-"+program.id}>{program.description}</p></div>
-        </motion.button>)}
+        {yogaPrograms.map(program => {
+          const href = programLinks[program.id];
+          const cardProps = { className: "yoga-bento-card bento-tone-"+program.tone+(program.id==="general"?" bento-featured":""), "aria-labelledby": "bento-title-"+program.id, "aria-describedby": "bento-description-"+program.id, whileHover: { y: -4 }, whileTap: { scale: 0.99 }, transition: { duration: 0.22 } };
+          const content = <>
+            <span className="bento-card-top"><span>{program.category}</span><Icon icon={PiArrowUpRightThin} size="sm" /></span>
+            <div className="bento-art"><ProgramIllustration kind={program.id} /></div>
+            <div className="bento-card-copy"><h3 id={"bento-title-"+program.id}>{program.title}</h3><p id={"bento-description-"+program.id}>{program.description}</p></div>
+          </>;
+          return href
+            ? <MotionLink key={program.id} href={href} {...cardProps}>{content}</MotionLink>
+            : <motion.button key={program.id} type="button" onClick={() => { setSelected(program); setTraining("200hr TTC"); }} {...cardProps}>{content}</motion.button>;
+        })}
       </div>
     </div>
     <Sheet open={selected!==null} onClose={()=>setSelected(null)} title={selected?.title??"Explore a program"} description={selected?.detail}>

@@ -7,6 +7,7 @@ const columns = [
     title: "Explore",
     links: [
       { label: "About us", href: "/about" },
+      { label: "Contact us", href: "/contact" },
       { label: "Notices & events", href: "/#notices-events" },
       { label: "Yoga programs", href: "/#yoga-programs" },
       { label: "Testimonials", href: "/#testimonials" },
@@ -80,7 +81,7 @@ export function SiteFooter() {
           </div>
           <p>
             Website by{" "}
-            <a href="https://www.github.com/premraj99" target="_blank" rel="noopener noreferrer">Prem Raj</a>
+            <a href="https://premraj.online" target="_blank" rel="noopener noreferrer">Prem Raj</a>
           </p>
         </div>
       </div>
