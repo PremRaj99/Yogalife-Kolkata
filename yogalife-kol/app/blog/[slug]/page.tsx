@@ -9,7 +9,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSanitize from "rehype-sanitize";
 import { SiteFooter } from "@/components/site-footer";
 import { formatPostDate, getPost, postExcerpt } from "@/lib/blog";
-import { defaultShareImage, openGraphBase } from "@/lib/site";
+import { openGraphBase } from "@/lib/site";
 import "../../home.css";
 import "../../cta.css";
 import "../../footer.css";
@@ -22,22 +22,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPost((await params).slug);
   if (!post) return { title: "Post not found", robots: { index: false } };
   const description = postExcerpt(post);
+  const openGraph: Metadata["openGraph"] = {
+    type: "article",
+    locale: openGraphBase.locale,
+    siteName: openGraphBase.siteName,
+    images: openGraphBase.images,
+    title: post.title,
+    description,
+    publishedTime: post.publishedAt.toISOString(),
+    modifiedTime: post.updatedAt?.toISOString(),
+    authors: post.author ? [post.author] : undefined,
+  };
   return {
     // The root title template already appends "| Yogalife Kolkata".
     title: post.title,
     description,
     alternates: { canonical: "/blog/" + post.slug },
-    openGraph: {
-      ...openGraphBase,
-      type: "article",
-      title: post.title,
-      description,
-      publishedTime: post.publishedAt.toISOString(),
-      modifiedTime: post.updatedAt?.toISOString(),
-      authors: post.author ? [post.author] : undefined,
-      // Setting openGraph here drops the inherited image, so add it back.
-      images: [defaultShareImage],
-    },
+    openGraph,
   };
 }
 
