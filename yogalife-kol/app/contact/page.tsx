@@ -22,10 +22,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-// Share link from Google Maps. For a pinned embed, replace mapEmbed with the
-// src from Google Maps > Share > Embed a map.
-const mapLink = "https://maps.app.goo.gl/XyoKGiLYqHpK9B569";
-const mapEmbed = "https://maps.google.com/maps?q=Yogalife+Kolkata&z=15&output=embed";
+// Studio location (E3byRitz on Google Maps). The embed pins the exact coordinates.
+const address = "1/1, Dr, HK Chatterjee Ln, Belur Math, Belur, Ghusuri, Howrah, West Bengal 711202";
+const mapLink =
+  "https://www.google.com/maps/place/E3byRitz/@22.6223188,88.3555483,17z/data=!3m1!4b1!4m6!3m5!1s0x39f89de9355b614b:0x3e9976ef678b4ffd!8m2!3d22.6223188!4d88.3555483!16s%2Fg%2F11rc6z185z";
+const mapEmbed = "https://maps.google.com/maps?q=22.6223188,88.3555483&z=17&output=embed";
 
 const phone = "+91 95460 74242";
 const email = "yogalifekolkata@gmail.com";
@@ -36,7 +37,7 @@ const details = [
   { icon: PiWhatsappLogoThin, label: "WhatsApp", value: "Chat with us", href: whatsapp },
   { icon: PiPhoneThin, label: "Call", value: phone, href: "tel:+919546074242" },
   { icon: PiEnvelopeThin, label: "Email", value: email, href: "mailto:" + email },
-  { icon: PiMapPinThin, label: "Visit", value: "Open in Google Maps", href: mapLink },
+  { icon: PiMapPinThin, label: "Visit", value: address, href: mapLink },
 ];
 
 const socials = [
