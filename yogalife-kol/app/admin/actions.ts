@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { auth, signIn, signOut } from "@/auth";
 import { isAdminEmail } from "@/lib/admin";
+import { uploadImage } from "@/lib/cloudinary";
 import { getDb } from "@/lib/mongodb";
 
 // Server actions can be called directly via POST, so every one checks the session.
@@ -52,6 +53,12 @@ function formatTime(start: string, end: string) {
   return end ? `${format(start)} – ${format(end)}` : format(start);
 }
 
+// An empty file input still submits a 0-byte File, so treat that as "no new image".
+async function readImage(formData: FormData) {
+  const file = formData.get("image");
+  return file instanceof File && file.size > 0 ? uploadImage(file) : undefined;
+}
+
 function readId(formData: FormData) {
   const id = String(formData.get("_id") ?? "");
   if (!ObjectId.isValid(id)) throw new Error("Invalid entry.");
@@ -69,11 +76,12 @@ export async function adminSignOut() {
 export async function createEntry(formData: FormData) {
   await requireAdmin();
   const { kind, ...row } = entrySchema.parse(Object.fromEntries(formData));
+  const image = await readImage(formData);
   const db = await getDb();
   await db.collection("timeline").insertOne({
     kind,
     order: Date.now(),
-    row: { id: `${kind}-${crypto.randomUUID().slice(0, 8)}`, ...row },
+    row: { id: `${kind}-${crypto.randomUUID().slice(0, 8)}`, ...row, ...(image && { image }) },
   });
   revalidatePath("/admin");
 }
@@ -82,15 +90,17 @@ export async function updateEntry(formData: FormData) {
   await requireAdmin();
   // Kind and row.id stay fixed so existing registrations keep pointing at the event.
   const { kind: _kind, ...row } = entrySchema.parse(Object.fromEntries(formData));
+  const image = await readImage(formData);
+  const removeImage = !image && formData.get("removeImage") === "on";
   const db = await getDb();
   await db.collection("timeline").updateOne(
     { _id: readId(formData) },
     {
       $set: Object.fromEntries(
-        Object.entries(row).map(([key, value]) => ["row." + key, value]),
+        Object.entries({ ...row, ...(image && { image }) }).map(([key, value]) => ["row." + key, value]),
       ),
       // Old sheet notices kept location + text in "content"; drop it once edited.
-      $unset: { "row.content": "" },
+      $unset: { "row.content": "", ...(removeImage && { "row.image": "" }) },
     },
   );
   revalidatePath("/admin");

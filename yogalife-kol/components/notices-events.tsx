@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import {
   PiArrowRightThin,
@@ -366,6 +367,16 @@ export function NoticesEvents() {
                               {item.title}
                             </button>
                           </h3>
+                          {item.image && (
+                            <div className="updates-image">
+                              <Image
+                                src={item.image}
+                                alt=""
+                                fill
+                                sizes="(max-width: 768px) 100vw, 560px"
+                              />
+                            </div>
+                          )}
                           <p>
                             {excerpt.length > 190
                               ? excerpt.slice(0, 187).replace(/\s+\S*$/, "") +
@@ -437,6 +448,16 @@ export function NoticesEvents() {
                   : "Upcoming event"}
             </span>
             <EntryMeta item={selected} />
+            {selected.image && (
+              <div className="updates-image">
+                <Image
+                  src={selected.image}
+                  alt={selected.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 560px"
+                />
+              </div>
+            )}
             <p className="updates-full-description">{selected.description}</p>
             {selectedIsPast ? (
               <p className="updates-history-note">

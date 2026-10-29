@@ -102,6 +102,8 @@ export function normalizeFeedRows(
     } catch {
       /* Unpublished registration links remain unavailable. */
     }
+    const imageUrl = row.image?.trim() ?? "";
+    const image = imageUrl.startsWith("https://res.cloudinary.com/") ? imageUrl : null;
     return [
       {
         id,
@@ -113,6 +115,7 @@ export function normalizeFeedRows(
         time: row.time?.trim() ?? "",
         location,
         registrationUrl,
+        image,
       },
     ];
   });

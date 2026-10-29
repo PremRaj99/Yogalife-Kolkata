@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { auth } from "@/auth";
 import { isAdminEmail } from "@/lib/admin";
@@ -196,6 +197,19 @@ function EntryFields({ entry }: { entry?: TimelineEntry }) {
       <label className="field admin-wide">
         Description
         <textarea className="input" name="description" rows={5} maxLength={5000} defaultValue={entry?.description} />
+      </label>
+      {entry?.image && (
+        <div className="field admin-wide">
+          Current image
+          <Image src={entry.image} alt="" width={160} height={90} style={{ objectFit: "cover" }} />
+          <label>
+            <input type="checkbox" name="removeImage" /> Remove image
+          </label>
+        </div>
+      )}
+      <label className="field admin-wide">
+        {entry?.image ? "Replace image (optional, max 4 MB)" : "Image (optional, max 4 MB)"}
+        <input className="input" type="file" name="image" accept="image/*" />
       </label>
     </div>
   );

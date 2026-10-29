@@ -11,6 +11,7 @@ export const timelineEntrySchema = z.object({
   time: z.string(),
   location: z.string(),
   registrationUrl: z.url().startsWith("https://").nullable(),
+  image: z.url().startsWith("https://res.cloudinary.com/").nullable(),
 });
 
 export const timelineFeedSchema = z.object({

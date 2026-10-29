@@ -256,6 +256,16 @@
   line-height: 1.7;
   margin-bottom: 16px;
 }
+.updates-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 16px;
+  overflow: hidden;
+  background: var(--color-cream);
+}
+.updates-image img {
+  object-fit: cover;
+}
 .updates-meta {
   display: flex;
   gap: 12px 24px;
