@@ -209,11 +209,11 @@ export function HomeHero() {
           <h1
             id="hero-title"
             className="home-headline"
-            aria-label="Find your inner balance."
+            aria-label="Discover the True Essence of Yoga"
           >
             {[
-              ["Find", "your"],
-              ["inner", "balance."],
+              ["Discover", "the", "True"],
+              ["Essence", "of", "Yoga"],
             ].map((line, lineIndex) => (
               <span
                 className="home-headline-line"
@@ -233,8 +233,10 @@ export function HomeHero() {
             With Yogalife Kolkata
           </p>
           <p className="home-hero-description home-hero-support">
-            Mindful movement. A quieter mind. Discover a gentle path to
-            wellbeing, rooted in the wisdom of traditional yoga.
+            At Yogalife Kolkata, we bring together the timeless wisdom of
+            traditional Indian yoga, therapeutic practices, mindful movement,
+            breathwork, and holistic wellness to nurture harmony between body,
+            mind, and soul.
           </p>
           <a
             className="button home-hero-cta"
@@ -258,8 +260,8 @@ export function HomeHero() {
               ))}
             </div>
             <p>
-              <strong>A gentle place to begin.</strong>
-              <span>Every body. Every experience level.</span>
+              <strong>Traditional Yoga &amp; Yoga Education</strong>
+              <span>Authentic practice for beginners to future teachers.</span>
             </p>
           </div>
         </div>
