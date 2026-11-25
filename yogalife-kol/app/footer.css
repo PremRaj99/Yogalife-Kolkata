@@ -113,3 +113,12 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Below 1024px the body reserves 80px for the fixed bottom menu. Run the
+   footer's green through that space so no white band shows under it. */
+@media (max-width: 1023px) {
+  .site-footer {
+    margin-bottom: -80px;
+    padding-bottom: calc(32px + 80px);
+  }
+}
