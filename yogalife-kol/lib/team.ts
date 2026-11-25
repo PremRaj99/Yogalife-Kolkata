@@ -31,6 +31,12 @@ export const leaders = [
     bio: "BHMS, RYT 500 and Master's in Yoga Therapy (S-VYASA University, Bangalore). Joint Secretary of Yogalife Kolkata.",
   },
   {
+    name: "Associate Professor Dr. Seema Singh",
+    role: "Head – National Workshops & Outreach",
+    image: "/images/team/seema-singh.jpeg",
+    bio: "Associate Professor, Department of Humanities and Social Sciences, IIT Kharagpur. An accomplished academician, yoga educator and meditation facilitator.",
+  },
+  {
     name: "Tanmoy Roy",
     role: "Yoga Teacher",
     image: "/images/team/tanmoy-roy.jpg",
