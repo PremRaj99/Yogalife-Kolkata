@@ -5,6 +5,7 @@ import Image from "next/image";
 import { HomeNavigation } from "@/components/home-navigation";
 import { CtaSection } from "@/components/cta-section";
 import { SiteFooter } from "@/components/site-footer";
+import { ShowMore } from "@/components/show-more";
 import "../home.css";
 import "../cta.css";
 import "../footer.css";
@@ -73,7 +74,7 @@ export default function Gallery() {
                   <h2 id={"album-" + album.date}>{label}</h2>
                   <p className="muted">{album.photos.length} photos</p>
                 </div>
-                <ul className="gallery-grid">
+                <ShowMore className="gallery-grid" limit={12}>
                   {album.photos.map((file, index) => (
                     <li key={file} className="gallery-item">
                       <Image
@@ -85,7 +86,7 @@ export default function Gallery() {
                       />
                     </li>
                   ))}
-                </ul>
+                </ShowMore>
               </div>
             </section>
           );

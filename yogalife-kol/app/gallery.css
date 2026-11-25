@@ -12,4 +12,6 @@
 @media (max-width: 639px) {
   .gallery-hero { padding-top: 24px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .gallery-album .section-intro { margin-bottom: 20px; }
+  .gallery-album .section-intro p { margin: 4px 0 0; }
 }
