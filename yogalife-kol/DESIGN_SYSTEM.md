@@ -9,7 +9,7 @@ Traditional Indian warmth with contemporary simplicity. Premium through proporti
 ## Tokens and decisions
 
 - Colour area target: 60% white `#ffffff`, 30% cream `#fcf4e8`, 10% forest `#234d3c`. This is composition guidance, not a literal pixel quota. Use green for actions and emphasis; avoid large dark panels.
-- Commissioner via `next/font/google`, self-hosted by Next.js. Heading weights 500–700; body 400–500. H1 56–72 desktop / 36–44 mobile; H2 32–48; H3 24–32; body 16–18 at 1.65; small 14. Eyebrows are decorative 12px labels.
+- Commissioner via `next/font/google`, self-hosted by Next.js. Heading weights 500–700; body 400–500. H1 56–72 desktop / 36–44 mobile; H2 32–48; H3 24–32; body 16–18 at 1.65; small 14. Eyebrows are decorative 12px labels. Below 640px the scale tightens to H1 40, H2 28, H3 20, card text 15 (tokens `--text-h1/h2/h3/card`), with H2–H4 at weight 600; section CSS should use these tokens rather than fixed mobile sizes.
 - Content width 1248px. Grid 4 columns below 640px, 8 from 640px, 12 from 1024px. Breakpoints: mobile <640, tablet 640, laptop 1024, desktop 1280, wide 1536. Navigation changes at 1024px.
 - Section spacing 56px mobile, 64px tablet, 96px laptop, 104px desktop, 120px wide. Gutters 16/24/32px. Grid gaps 24/32px.
 - Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64, 80, 96, 120px. Surface padding 16, 24 or 32. Default 24; feature 32.
@@ -31,7 +31,7 @@ Traditional Indian warmth with contemporary simplicity. Premium through proporti
 
 ## Images, icons and motion
 
-Use custom warm illustrations: cream, earth tones, soft sage and forest. `WellnessArt` is original SVG artwork, scalable without external image dependencies. Use Phosphor icons from `react-icons/pi`, choosing the `Thin` variants for a delicate, approximately 1px appearance at 16/24px. Use plain carets and an X for navigation and dismissal, without enclosing circles. No emoji icons or heavy strokes. Motion should clarify state; transitions around 220ms, slow breathing only for loading. Respect reduced motion in both CSS and Motion.
+Use custom warm illustrations: cream, earth tones, soft sage and forest. `WellnessArt` is original SVG artwork, scalable without external image dependencies. Use Phosphor icons from `react-icons/pi`, choosing the `Thin` variants for a delicate, approximately 1px appearance at 16/24px. Below 640px a global rule in `app/globals.css` adds a path stroke so these read at roughly Light/Regular weight on phones. Use plain carets and an X for navigation and dismissal, without enclosing circles. No emoji icons or heavy strokes. Motion should clarify state; transitions around 220ms, slow breathing only for loading. Respect reduced motion in both CSS and Motion.
 
 ## SEO and content
 

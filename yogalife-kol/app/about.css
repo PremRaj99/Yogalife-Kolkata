@@ -73,6 +73,10 @@
   .about-founder + .about-founder { margin-top: 64px; }
 }
 @media (max-width: 639px) {
+  .about-hero h1 { font-size: var(--text-h1); line-height: 1.08; }
+  .about-founder-role { font-size: var(--text-h1); }
+  .about-team-row h3, .about-principles h3 { font-size: var(--text-h3); }
+  .about-team-row p, .about-principles p { font-size: var(--text-card); }
   .about-team-row { grid-template-columns: 56px 1fr; gap: 8px 16px; align-items: start; }
   .about-team-photo { width: 56px; height: 56px; grid-row: auto; }
   .about-team-row p { grid-column: 1 / -1; }

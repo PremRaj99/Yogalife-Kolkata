@@ -26,4 +26,6 @@
 @media (max-width: 639px) {
   .retreats-section .section-intro { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 32px; }
   .retreat-card { flex-basis: 80%; }
+  .retreat-card h3 { font-size: var(--text-h3); }
+  .retreat-card p { font-size: var(--text-card); }
 }

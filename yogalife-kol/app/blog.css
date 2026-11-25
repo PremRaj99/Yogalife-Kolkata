@@ -38,6 +38,7 @@
   .blog-hero, .blog-post { padding-top: 24px; }
   .blog-grid { grid-template-columns: 1fr; gap: 12px; }
   .blog-card > a { padding: 20px; }
+  .blog-card h2 { font-size: var(--text-h3); }
   .blog-body p, .blog-body li { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {

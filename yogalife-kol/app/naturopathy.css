@@ -45,4 +45,6 @@
   .naturo-heading-side { align-items: flex-start; }
   .naturo-heading-side p { text-align: left; }
   .naturo-card { flex-basis: 82%; min-height: 300px; }
+  .naturo-copy h3 { font-size: var(--text-h3); margin-bottom: 8px; }
+  .naturo-copy p { font-size: var(--text-card); }
 }
