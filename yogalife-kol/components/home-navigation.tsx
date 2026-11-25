@@ -12,12 +12,12 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import {
   PiArticleThin,
-  PiBookOpenThin,
+  PiBookOpenLight,
   PiCaretDownThin,
-  PiEnvelopeThin,
-  PiFlowerLotusThin,
-  PiHeartThin,
-  PiHouseThin,
+  PiEnvelopeLight,
+  PiFlowerLotusLight,
+  PiHeartLight,
+  PiHouseLight,
   PiImagesThin,
   PiWhatsappLogoThin,
 } from "react-icons/pi";
@@ -397,29 +397,29 @@ export function HomeNavigation({
           href={homeHref}
           aria-current={current === "home" ? "page" : undefined}
         >
-          <Icon icon={PiHouseThin} />
+          <Icon icon={PiHouseLight} />
           Home
         </Link>
         <Link
           href="/about"
           aria-current={current === "about" ? "page" : undefined}
         >
-          <Icon icon={PiHeartThin} />
+          <Icon icon={PiHeartLight} />
           About
         </Link>
         <button onClick={() => showMobileMenu("program")}>
-          <Icon icon={PiFlowerLotusThin} />
+          <Icon icon={PiFlowerLotusLight} />
           Program
         </button>
         <button onClick={() => showMobileMenu("resources")}>
-          <Icon icon={PiBookOpenThin} />
+          <Icon icon={PiBookOpenLight} />
           Resources
         </button>
         <Link
           href="/contact"
           aria-current={current === "contact" ? "page" : undefined}
         >
-          <Icon icon={PiEnvelopeThin} />
+          <Icon icon={PiEnvelopeLight} />
           Contact Us
         </Link>
       </nav>

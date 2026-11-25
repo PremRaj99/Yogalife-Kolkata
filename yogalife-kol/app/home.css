@@ -620,3 +620,52 @@
     font-size: 12px;
   }
 }
+/* Mobile bottom menu: soft frosted bar, Light-weight icons, gentle states */
+@media (max-width: 1023px) {
+  .home-mobile-nav {
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+    border-radius: 20px 20px 0 0;
+    background: #ffffffe0;
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow: 0 -1px 0 #234d3c0d, 0 -10px 30px #234d3c0f;
+  }
+  .home-mobile-nav > a,
+  .home-mobile-nav > button {
+    padding: 4px 2px;
+    gap: 2px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--color-muted);
+    -webkit-tap-highlight-color: transparent;
+    transition: color 220ms ease, transform 160ms ease;
+  }
+  .home-mobile-nav .icon {
+    box-sizing: content-box;
+    padding: 4px 16px;
+    border-radius: 999px;
+    transition: background-color 220ms ease;
+  }
+  /* Light icons are already drawn at a smooth weight; skip the
+     phone-width stroke boost from globals.css */
+  .home-mobile-nav svg {
+    stroke-width: 0;
+  }
+  .home-mobile-nav > [aria-current="page"] {
+    color: var(--color-forest);
+  }
+  .home-mobile-nav > [aria-current="page"] .icon {
+    background: var(--color-sage);
+  }
+  .home-mobile-nav > a:active,
+  .home-mobile-nav > button:active {
+    transform: scale(0.95);
+  }
+}
+@media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
+  .home-mobile-nav > a:active,
+  .home-mobile-nav > button:active {
+    transform: none;
+  }
+}

@@ -7,6 +7,7 @@ import { CtaSection } from "@/components/cta-section";
 import { SiteFooter } from "@/components/site-footer";
 import { formatPostDate, listPosts, postExcerpt } from "@/lib/blog";
 import "../home.css";
+import "../programs-bento.css";
 import "../testimonials.css";
 import "../cta.css";
 import "../footer.css";

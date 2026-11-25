@@ -19,4 +19,7 @@
 @media (max-width: 639px) {
   .testimonials-masonry { gap: 12px; grid-auto-rows: minmax(170px, auto); }
   .testimonial-card { padding: 16px; }
+  /* Written reviews take the full row on phones; videos still pair up */
+  .testimonial-card:not(:has(.testimonial-video)) { grid-column: 1 / -1; }
+  .testimonial-card blockquote { font-size: var(--text-card); }
 }

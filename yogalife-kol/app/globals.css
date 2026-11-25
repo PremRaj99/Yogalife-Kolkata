@@ -755,6 +755,14 @@ small,
   }
 }
 @media (max-width: 1023px) {
+  /* Below 1024px the bottom bar carries navigation, so the header
+     scrolls away with the page instead of staying pinned. */
+  html {
+    scroll-padding-top: 16px;
+  }
+  .site-header {
+    position: relative;
+  }
   .desktop-nav {
     display: none;
   }
