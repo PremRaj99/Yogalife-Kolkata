@@ -34,7 +34,7 @@ export const leaders = [
     name: "Dr. Seema Singh",
     role: "Head – National Workshops & Outreach",
     image: "/images/team/seema-singh.jpeg",
-    bio: "Associate Professor, Department of Humanities and Social Sciences, IIT Kharagpur. An accomplished academician, yoga educator and meditation facilitator.",
+    bio: "Associate Professor Dr. Seema Singh (YC, TTC200,  YPI,  YWI), Department of Humanities and Social Sciences, IIT Kharagpur, is an accomplished academician, yoga educator (Ayush Mantralaya,  GoI) and meditation facilitator.",
   },
   {
     name: "Tanmoy Roy",
